@@ -1,0 +1,152 @@
+body {
+  background-color: #f7f7f7;
+  transition: background-color 1s;
+}
+
+h1 {
+  margin-bottom:0;
+  font-size:1.6em;
+}
+
+h2 {
+  font-size:1.2em;
+}
+
+h3 {
+  margin-top:0.2em;
+  font-weight:400;
+  font-size:1.1em;
+  opacity:0.5;
+}
+
+p {
+  font-size:15px;
+  font-weight:300;
+}
+
+a {
+  color: #9e00ff;
+}
+
+.project-wrapper {
+  max-width:700px;
+  margin:auto;
+}
+.row {
+  padding-top:0.5em;
+  padding-bottom:0.5em;
+}
+.project {
+  /*border-top:1px solid black;*/
+  padding-top:10px;
+  font-size:12px;
+}
+
+.project:hover {
+  cursor:pointer;
+  opacity:0.7;
+}
+
+.project>div {
+  margin-bottom: 8px;
+}
+
+.tags {
+  margin-top:8px;
+  overflow-wrap:unset;
+  font-size:11px;
+}
+
+.container {
+  /*  max-width:700px; */
+  padding-top:80px;
+}
+
+.glyphs img, img.icon {
+  width:20px;
+  height:20px;
+  opacity:0.3;
+}
+
+.glyphs img:hover, img.icon:hover {
+  opacity: 1;
+}
+
+.glyphs {
+  position:absolute;
+  top:10px;
+  right:20px;
+  fill: red;
+}
+
+#project-panel img {
+  width:100%;
+  height:auto;
+  position:absolute;
+  opacity:0;
+  transition: all 1s ease-out;
+  top:-20%;
+  padding: 30px;
+  /*-webkit-box-shadow: 6px 17px 104px 24px rgba(0,0,0,0.13);
+-moz-box-shadow: 6px 17px 104px 24px rgba(0,0,0,0.13);
+box-shadow: 6px 17px 104px 24px rgba(0,0,0,0.13);*/
+}
+
+#info-panel [class*='col-'] {
+  padding-left:0;
+  min-width:0;
+}
+
+.row [class*='col-'] {
+  transition: all 0.5s linear;
+  min-width:200px;
+  margin-bottom:30px;
+}
+
+.panel {
+  flex: 1 1 0;
+}
+
+.project div {
+  max-height:200px;
+}
+
+.project, .project div {
+  /*transition: all 0.2s linear;*/
+}
+
+.col-active {
+  position:absolute;
+  right:0;
+  top:0;
+}
+
+div.minimise {
+  display:block!important;
+  margin-bottom: 4px !important;
+}
+
+.minimise .project div {
+  max-height:0;
+  overflow:hidden;
+}
+
+.minimise h2 {
+  font-size: 15px;
+  color: #999;
+  margin-bottom: 0;
+}
+
+.minimise .project-active h2 {
+  color: black;
+}
+
+.hide {
+  display:none;
+}
+
+#btn-toggle {
+  position:absolute;
+  top:-30px;
+  left:10px;
+}
