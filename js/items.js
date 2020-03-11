@@ -5,7 +5,7 @@ var items = [
     tags : ['Node', 'Vue', 'Vuetify', 'MongoDB', 'Turf', 'Okta'],
     website : 'https://ejmap.herokuapp.com/',
     github :'https://github.com/ellisdod/urban-analytics',
-    img : ['project_1.png'],
+    imgs : ['project_1.png'],
     background : '#f5efef'
   },
   {
@@ -14,7 +14,7 @@ var items = [
     tags : ['Google Apps Script', 'Vue', 'Firebase'],
     website : 'https://xpnsr.co',
     github: '',
-    img : ['project_1.png'],
+    imgs : ['project_1.png'],
     background: '#f0f5ef'
   },
   {
@@ -23,7 +23,7 @@ var items = [
     tags : ['Node', 'Vue', 'Vuetify', 'MongoDB', 'AWS S3'],
     website : '',
     github:'https://github.com/ellisdod/hbs1066',
-    img : ['project_1.png'],
+    imgs : ['logger_chrome.png','logger-iphone.png'],
     background : '#f5f4ef'
   },
   {
@@ -32,16 +32,16 @@ var items = [
     tags : ['Django','Python'],
     website : 'http://murmurater.com',
     github:'',
-    img : ['project_1.png'],
+    imgs : ['murmurater_home.png','murmurater_results.png'],
     background: '#f0eff5'
   },
   {
     title : 'Safer in the City',
     desc : 'Digitised interactive report for City of London',
     tags : ['Grav'],
-    website : '',
+    website : 'https://saferinthecity.frb.io/',
     github: '',
-    img : ['project_1.png'],
+    imgs : ['saferinthecity_0.png','saferinthecity_1.png','saferinthecity_2.png'],
     background :'#f5eff2',
   },
   {
@@ -50,7 +50,7 @@ var items = [
     tags : ['Django', 'Python'],
     website : '',
     github:'',
-    img : ['project_1.png']
+    imgs : ['logger-iphone.png']
   },
   {
     title : 'Roam',
@@ -58,6 +58,6 @@ var items = [
     tags : ['R', 'Python'],
     website : '',
     github:'',
-    img : ['project_1.png']
+    imgs : ['roam_chart.png','roam_world.png','roam_map.png']
   }
 ]

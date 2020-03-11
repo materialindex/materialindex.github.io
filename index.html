@@ -5,75 +5,69 @@
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="bootstrap/css/bootstrap-grid.min.css" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet">
-  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
   <script src="js/items.js"></script>
+  <script src="js/htmlHelper.js"></script>
 
 </head>
 
 <body>
 
-  <header class="p-3 p-sm-5">
-    <div>
-      <h1>Ellis Dodwell</h1>
-      <h3>Full Stack Developer</h3>
-      <a href="">
-        <img src="img/icons/github.svg" class="icon">
-      </a>
-      <a href="">
-      <img src="img/icons/twitter.svg" class="icon">
-      </a>
-      <a href="">
-        <img src="img/icons/linkedin.svg" class="icon">
-      </a>
-      <a href="">
-        <img src="img/icons/email.svg" class="icon">
-      </a>
-    </div>
-  </header>
+  <div class="container-fluid">
+    <div class="row px-3 py-3 align-items-stretch">
 
-  <div class="container-fluid p-3 p-sm-5">
-    <div class="row px-0">
+      <div class="panel col-12 col-sm-3 col-md-2">
+        <div class="row">
 
-      <div id="control-panel">
-      </div>
+        <div id="title-panel" class="col-7 col-sm-12">
+          <h1>Ellis Dodwell</h1>
+          <h3>Full Stack Developer</h3>
 
-      <div id="project-panel">
-        <div class="row px-0">
-          <a id="btn-toggle">
-            <img src="img/icons/view-grid.svg" class="icon">
+        </div>
+        <div id="control-panel" class="col-5 col-sm-12">
+        </div>
+        <div id="contact-panel" class="px-1 py-3">
+
+          <a href="" class="icon">
+            <img src="img/icons/github.svg">
           </a>
+          <a href="" class="icon">
+            <img src="img/icons/twitter.svg">
+          </a>
+          <a href="" class="icon">
+            <img src="img/icons/linkedin.svg">
+          </a>
+          <a href="" class="icon">
+            <img src="img/icons/email.svg">
+          </a>
+
+        </div>
         </div>
       </div>
 
-      <div id="img-panel">
-      </div>
+      <div id="main-panel" class="panel col-12 col-sm-9 col-md-10 col-lg-8">
+        <div id="projects-panel" class="row align-content-start px-0">
+          <!-- project grid generated here -->
+        </div>
 
-      <div id="info-panel">
+        <div id="imgs-panel" class="hide flex-column align-items-center">
+          <div>
+            <div id="main-img-panel" class="main px-0 px-sm-3 px-md-5"></div>
+            <div id="thumb-img-panel" class="thumbs"></div>
+            <div id="grid-view-switch">╳</div>
+          </div>
+        </div>
       </div>
-
-    </div>
 
   </div>
+
+</div>
+
 
 
 </body>
 
 
-<script src="js/main.js"/>
-  /*
-  var elem = document.querySelector('.grid');
-  var msnry = new Masonry( elem, {
-  // options
-  itemSelector: '.grid-item',
-  columnWidth: 200
-});
-
-// element argument can be a selector string
-//   for an individual element
-var msnry = new Masonry( '.grid', {
-// options
-});
-*/
+<script src="js/main.js">
 </script>
 
 </html>

@@ -1,218 +1,234 @@
 (function(){
+    var status;
+    const INFO_DIV_ID = 'project-info'
+    const panelNames = ['control','main','projects','title','imgs','thumb-img','main-img']
+    const panels = panelNames.reduce(
+        (acc,name) => {
+            acc[name] = document.getElementById(name+'-panel')
+            return acc
+        },{}
+    )
 
-  class HTML {
-    constructor (project) {
-      this.project = project
+    var config = {
+        dirImg : 'img/',
+        dirIcons : 'img/icons/',
+        breakpoints : {
+            sm : 576,
+            md : 768,
+            lg : 960
+        }
     }
+    const smAndMd = () => window.innerWidth > config.breakpoints.sm &&
+        window.innerWidth < config.breakpoints.lg
+    const xsOnly = () =>  window.innerWidth < config.breakpoints.sm
+    const lgAndUp = () => window.innerWidth > config.breakpoints.lg
 
-    el (type, child, classList) {
-      let el = document.createElement(type)
-      if (classList) el.classList = classList
-      if (!child) return el
-      if (typeof child === 'object')
-      el.appendChild(child)
-      else
-      el.appendChild(document.createTextNode(child))
-
-      return el
-    }
-
-    img (src,alt,classList) {
-      const img = this.el('img',null,classList)
-      img.src = src
-      img.alt = alt || src
-      return img
-    }
-
-    a (href, child, classList) {
-      const a = this.el('a',child,classList)
-      a.href = href
-      return a
-    }
-
-  }
-
-  class Project extends HTML {
-    constructor (project, index) {
-      super()
-      this.project = project
-      this.index = index
-    }
-
-    createTags () {
-      return this.el('div',this.project.tags.join(', '),'tags font-weight-bolder')
-    }
-
-    createGlyphs () {
-      const el = this.el('div',null,'glyphs')
-      if (!this.project.github) return el
-      const link = this.a(this.project.github, this.img(config.dirImg+'github.svg') )
-      el.appendChild(link)
-      return el
-    }
-
-    createDesc () {
-      const el = this.el('div',this.project.desc,'description')
-      return el
-    }
-
-    createTitle () {
-      const el = this.el('h2',this.project.title)
-      return el
-    }
-
-    createLink() {
-      const text = this.project.website.replace(/https?:\/\//,'').replace('/','')
-        return this.el('div', this.a(this.project.website, text))
-      }
-
-      html () {
-        const outer = this.el('div',null)
-        outer.setAttribute('index',this.index)
-        outer.classList = 'col-item col-xs-12 col-sm-6 col-md-6 col-lg-4'
-        outer.addEventListener("click", Actions.toV2)
-        const inner = this.el('div',null,'project')
-
-        inner.appendChild(this.createTitle())
-        inner.appendChild(this.createLink())
-        inner.appendChild(this.createDesc())
-        inner.appendChild(this.createGlyphs())
-        inner.appendChild(this.createTags())
-
-        outer.appendChild(inner)
-        return outer
-      }
-
-    }
-
-
-    const Actions = (function () {
-      const panelNames = ['control','project','info']
-      const PANELS = panelNames.map(
-        x => document.getElementById(x+'-panel')
-      )
-
-      const updateProjectsStyle = (style) => {
+    function updateProjectsStyle (style) {
         Array.from(document.getElementsByClassName('col-item'))
         .forEach(colItem=>Object.assign(colItem.style,style))
-      }
-
-      const hideElementsByClass = (className) => {
-        Array.from(document.getElementsByClassName(className))
-        .forEach(el=>el.style.height = 0)
-      }
-
-      const updatePanelClasses = function(version) {
-        PANELS.forEach((el,i)=>el.classList = config.panel[version][panelNames[i]])
-      }
-
-      const toV1 = function () {
-        document.body.style.background = config.body.v1.background
-        updatePanelClasses('v1')
-        updateProjectsStyle({minWidth:'200px;'})
-        setTimeout(()=>{
-          PANELS.forEach(x=>x.classList.remove('minimise'))
-        },800)
-      }
-
-      const toV2 = function (el)  {
-        //updateProjectsStyle({minWidth:'100%'})
-        el = el.currentTarget
-        const index = el.getAttribute('index')
-        const item = items[index]
-        const imgs = item.img
-        const img = new HTML().img(config.dirImg+imgs[0])
-        const clone = el.cloneNode(true)
-        clone.classList = "col-item"
-
-        document.body.style.background = config.body.v2.background
-
-        const [controlPanel, projectPanel, infoPanel] = PANELS
-
-        el.classList.remove('col-item')
-        //projectPanel.classList = config.panel.v2.project
-        infoPanel.replaceChild(clone, infoPanel.firstChild )
-
-        //img.style.opacity = 1;
-
-        const colItems = Array.from(document.getElementsByClassName('col-item'))
-
-        colItems.reverse().forEach((item,i)=>{
-          item.classList.add('minimise')
-          setTimeout(()=>{
-            const clone = item.cloneNode(true)
-            item.style.visibility = 'hidden'
-            controlPanel.appendChild(clone)
-          },100*i)
-        })
-
-        setTimeout(()=>{
-          const pos = el.getBoundingClientRect()
-          console.log(pos)
-          el.style.transform = `translateX(${window.innerWidth - pos.x -pos.width}px)`
-          el.style.maxWidth = document.getElementById('info-panel').getBoundingClientRect().width
-          projectPanel.innerHtml = ''
-          projectPanel.appendChild(img);
-          setTimeout(()=>{
-            img.style.opacity = 1
-          },500)
-
-          //el.classList.add('col-active')
-        },100*colItems.length-5)
-
-        setTimeout(()=>{
-          //updatePanelClasses('v2')
-        },1000)
-
-        //document.body.style.background = '#999'
-      }
-
-      return {
-        toV1 : toV1,
-        toV2 : toV2,
-        updatePanelClasses : updatePanelClasses,
-      }
-
-    })()
-
-
-    const config = {
-      dirImg : 'img/',
-      panelBase : 'panel col-xs-12 ',
-      body : {
-        v1 : {
-          background: '#f7f7f7'
-        },
-        v2 : {
-          background:'#efeeee'
-        },
-      },
-      get panel () {
-        return {
-          v1 : {
-            control : this.panelBase + 'col-sm-2',
-            project : this.panelBase + 'col-sm-8',
-            info :  this.panelBase + 'col-sm-2'
-          },
-          v2 : {
-            project :  this.panelBase + 'col-md-3 col-lg-2 minimise',
-            img :  this.panelBase + 'col-md-6 offset-lg-1',
-            info :  this.panelBase + 'col-md-3 col-lg-2 offset-lg-1'
-          }
-        }
-      }
     }
 
-    const html = document.getElementById('project-panel').firstElementChild
+    function hideElementsByClass (className) {
+        Array.from(document.getElementsByClassName(className))
+        .forEach(el=>el.style.height = 0)
+    }
+
+    function updatePanelClasses (version) {
+        Object.values(panels).forEach((el,i)=>el.classList = config.panel[version][panelNames[i]])
+    }
+
+    function getItemFromEl (el) {
+        const index = el.getAttribute('index')
+        return items[index]
+    }
+
+    function setGallery (item,delay) {
+        delay = delay || 1000
 
 
-    Actions.updatePanelClasses('v1')
+        const img = new htmlHelper().img(config.dirImg+item.imgs[0])
+        const thumbs = item.imgs.map(
+            imgPath => Helper.img(config.dirImg+imgPath)
+        )
+        const thumbContainer = Helper.el('div', thumbs)
 
-    document.getElementById('btn-toggle')
-      .addEventListener('click',Actions.toV1)
+        const wrapper = panels.imgs.firstElementChild
+        const mainSlot = wrapper.firstElementChild
+        const thumbSlot = mainSlot.nextElementSibling
 
+        if (smAndMd()) mainSlot.style.position = "absolute"
+
+        mainSlot.innerHTML = thumbSlot.innerHTML = ''
+
+        mainSlot.appendChild(img)
+        thumbSlot.appendChild(thumbContainer)
+
+        setTimeout(()=>{
+            mainSlot.style.opacity = 1
+        },delay*0.7)
+
+        setTimeout(()=>{
+            img.style.opacity = 1
+            thumbs.forEach((img,i)=>img.style.opacity = 0.6)
+        },delay)
+
+    }
+
+    function gridView () {
+        document.body.classList.remove('gallery-view')
+        panels.imgs.classList.replace('d-flex', 'hide')
+        panels.imgs.style.paddingBottom = '0'
+        panels.title.style.opacity = 1
+        init()
+        /*
+        updatePanelClasses('grid')
+        updateProjectsStyle({minWidth:'200px;'})
+        setTimeout(()=>{
+        Object.values(panels).forEach(x=>x.classList.remove('minimise'))
+    },800)
+    */
+}
+
+function nextImg() {
+    const current = panels['main-img'].firstChild.src
+    const thumbs = Array.from(panels['thumb-img'].querySelectorAll('img'))
+    console.log(current, thumbs)
+    let found = false
+    thumbs.forEach((x,i)=>{
+        console.log(x.src, current, x.src===current)
+        if (!found&&x.src===current) {
+            found = true
+            const next = thumbs[i+1]
+            if (!next) nextProject()
+            else panels['main-img'].firstChild.src = next.src
+        }
+    })
+}
+
+function nextProject() {
+    const current = document.getElementById(INFO_DIV_ID)
+    let currentIndex = parseInt(current.getAttribute('index'))
+    const projects = panels.control.children
+
+    if (currentIndex===projects.length) currentIndex = -1
+
+    console.log(currentIndex)
+
+    for (let x=0;x<projects.length;x++) {
+        if (parseInt(projects[x].getAttribute('index')) === currentIndex + 1) {
+            return galleryView(projects[x])
+        }
+    }
+    gridView()
+}
+
+function switchContent (el1,el2) {
+    const clone1 = el1.cloneNode(true)
+    const clone2 = el2.cloneNode(true)
+    el1.setAttribute('index',el2.getAttribute('index'))
+    el1.replaceChild(clone2.firstChild, el1.firstChild)
+    el2.replaceChild(clone1.firstChild, el2.firstChild)
+}
+
+function addToControlPanel (item) {
+    const clone = item.cloneNode(true)
+    clone.addEventListener('click',galleryView)
+    item.style.visibility = 'hidden'
+    panels.control.appendChild(clone)
+}
+
+function setTimeoutPromise(delay,fn,...args) {
+    return new Promise((res,rej)=>{
+        setTimeout(()=>{
+            fn(...args)
+            res()
+        },delay)
+    })
+}
+
+function shiftProject(el) {
+    const pos = el.getBoundingClientRect()
+    const imgPanelPos = panels['main-img'].getBoundingClientRect()
+    console.log(imgPanelPos)
+    if (lgAndUp()) {
+        const shift = imgPanelPos.right - pos.x
+        el.style.transform = `translateX(${shift}px)`
+        el.style.maxWidth = document.getElementById('control-panel').offsetWidth + 'px'
+        console.log(document.getElementById('control-panel').offsetWidth, el.style.maxWidth)
+    } else if (smAndMd()) {
+        const shift = imgPanelPos.bottom - pos.y
+        el.style.transform = `translateY(${shift}px)`
+    }  /*{
+        const titlePanel = document.getElementById('title-panel')
+        const shift = titlePanel.getBoundingClientRect().top - pos.top
+        console.log(shift, pos.top, titlePanel.getBoundingClientRect().top)
+        el.style.transform = `translateY(${shift}px)`
+        el.style.maxWidth = titlePanel.offsetWidth + 'px'
+    }*/
+
+}
+
+
+async function galleryView (el,direct) {
+    //updateProjectsStyle({minWidth:'100%'})
+    el = el.constructor.name === 'MouseEvent' ? el.currentTarget : el
+    const item = getItemFromEl(el)
+
+    const info = document.getElementById(INFO_DIV_ID)
+
+    if (info) {
+        switchContent(info,el)
+        return setGallery(item,100)
+    }
+
+    el.setAttribute('id', INFO_DIV_ID)
+
+    //panels.projects.classList = config.panel.v2.project
+    document.body.classList.add('gallery-view')
+
+    el.classList.remove('col-item')
+    const colItems = Array.from(document.getElementsByClassName('col-item'))
+
+    await Promise.all(
+        colItems.reverse().map((item,i)=>{
+            item.classList.add('minimise')
+            return setTimeoutPromise(100*i, addToControlPanel, item)
+        })
+    )
+
+    await new Promise((res,rej) =>{
+        setTimeout(()=>{
+            panels.imgs.classList.replace('hide', 'd-flex')
+            if (smAndMd()) panels.imgs.style.paddingBottom = '120px'
+            if (xsOnly()) panels.title.style.opacity = 0
+            shiftProject(el)
+            res()
+        },500)
+    })
+
+    setGallery(item,1200)
+
+}
+
+
+function init() {
+    Array.from(['projects','control']).forEach(x=>panels[x].innerHTML = '')
 
     items.forEach((item,i)=>{
-      html.appendChild(new Project(item,i).html())
+        const div = new htmlProject(item,i,config).html()
+        div.style.opacity = 0
+        div.addEventListener('click',galleryView)
+        panels.projects.appendChild(div)
+        setTimeout(()=> div.style.opacity = 1, 500/items.length*i)
     })
-  })()
+}
+
+
+document.getElementById('grid-view-switch').addEventListener('click',gridView)
+
+panels.imgs.addEventListener('click',nextImg)
+
+const Helper = new htmlHelper()
+init()
+
+})()
