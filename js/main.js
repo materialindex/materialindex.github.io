@@ -48,6 +48,7 @@
         console.log(item)
 
         const img = new htmlHelper().el('div',null,'main-image')
+        img.addEventListener('click',nextImg)
         img.style.backgroundImage = 'url('+config.dirImg+item.imgs[0]+')'
         const thumbs = item.imgs.map(
             imgPath => Helper.img(config.dirImg+imgPath)
@@ -228,16 +229,14 @@ function init() {
     items.forEach((item,i)=>{
         const div = new htmlProject(item,i,config).html()
         div.style.opacity = 0
-        div.addEventListener('click touchstart',galleryView)
+        div.addEventListener('click',galleryView)
         panels.projects.appendChild(div)
         setTimeout(()=> div.style.opacity = '', 500/items.length*i)
     })
 }
 
 
-document.getElementById('grid-view-switch').addEventListener('click touchstart',gridView)
-
-panels.imgs.addEventListener('click touchstart',nextImg)
+document.getElementById('grid-view-switch').addEventListener('click',gridView)
 
 const Helper = new htmlHelper()
 init()
