@@ -1,6 +1,7 @@
 (function(){
     var status;
     const INFO_DIV_ID = 'project-info'
+    const ACTIVE_CLASS = 'active'
     const panelNames = ['control','main','projects','title','imgs','thumb-img','main-img']
     const panels = panelNames.reduce(
         (acc,name) => {
@@ -44,9 +45,10 @@
 
     function setGallery (item,delay) {
         delay = delay || 1000
+        console.log(item)
 
-
-        const img = new htmlHelper().img(config.dirImg+item.imgs[0])
+        const img = new htmlHelper().el('div',null,'main-image')
+        img.style.backgroundImage = 'url('+config.dirImg+item.imgs[0]+')'
         const thumbs = item.imgs.map(
             imgPath => Helper.img(config.dirImg+imgPath)
         )
@@ -90,17 +92,18 @@
 }
 
 function nextImg() {
-    const current = panels['main-img'].firstChild.src
+    const toUrl = (url) => 'url("'+config.dirImg + url.split(config.dirImg)[1]+'")'
+    const current = panels['main-img'].firstChild.style
     const thumbs = Array.from(panels['thumb-img'].querySelectorAll('img'))
     console.log(current, thumbs)
     let found = false
     thumbs.forEach((x,i)=>{
-        console.log(x.src, current, x.src===current)
-        if (!found&&x.src===current) {
+        console.log( toUrl(x.src), current.backgroundImage)
+        if (!found&&toUrl(x.src)===current.backgroundImage) {
             found = true
             const next = thumbs[i+1]
             if (!next) nextProject()
-            else panels['main-img'].firstChild.src = next.src
+            else current.backgroundImage = toUrl(next.src)
         }
     })
 }
@@ -122,18 +125,25 @@ function nextProject() {
     gridView()
 }
 
-function switchContent (el1,el2) {
-    const clone1 = el1.cloneNode(true)
-    const clone2 = el2.cloneNode(true)
-    el1.setAttribute('index',el2.getAttribute('index'))
-    el1.replaceChild(clone2.firstChild, el1.firstChild)
-    el2.replaceChild(clone1.firstChild, el2.firstChild)
+function updateSelected (info,sel) {
+    Array.from(panels.control.children).forEach(
+        el=>el.classList.remove(ACTIVE_CLASS)
+    )
+    sel.classList.add(ACTIVE_CLASS)
+    const clone = sel.cloneNode(true)
+    info.setAttribute('index',sel.getAttribute('index'))
+    info.replaceChild(clone.firstChild, info.firstChild)
 }
 
 function addToControlPanel (item) {
     const clone = item.cloneNode(true)
     clone.addEventListener('click',galleryView)
-    item.style.visibility = 'hidden'
+
+    if (clone.id===INFO_DIV_ID) clone.id = ''
+    else {
+        item.style.visibility = 'hidden'
+    }
+    clone.classList.add('minimise')
     panels.control.appendChild(clone)
 }
 
@@ -172,12 +182,13 @@ function shiftProject(el) {
 async function galleryView (el,direct) {
     //updateProjectsStyle({minWidth:'100%'})
     el = el.constructor.name === 'MouseEvent' ? el.currentTarget : el
+
     const item = getItemFromEl(el)
 
     const info = document.getElementById(INFO_DIV_ID)
 
     if (info) {
-        switchContent(info,el)
+        updateSelected(info,el)
         return setGallery(item,100)
     }
 
@@ -185,13 +196,13 @@ async function galleryView (el,direct) {
 
     //panels.projects.classList = config.panel.v2.project
     document.body.classList.add('gallery-view')
+    if (xsOnly()) panels.title.style.opacity = 0
 
-    el.classList.remove('col-item')
+    //el.classList.remove('col-item')
     const colItems = Array.from(document.getElementsByClassName('col-item'))
 
     await Promise.all(
         colItems.reverse().map((item,i)=>{
-            item.classList.add('minimise')
             return setTimeoutPromise(100*i, addToControlPanel, item)
         })
     )
@@ -200,7 +211,6 @@ async function galleryView (el,direct) {
         setTimeout(()=>{
             panels.imgs.classList.replace('hide', 'd-flex')
             if (smAndMd()) panels.imgs.style.paddingBottom = '120px'
-            if (xsOnly()) panels.title.style.opacity = 0
             shiftProject(el)
             res()
         },500)
@@ -219,7 +229,7 @@ function init() {
         div.style.opacity = 0
         div.addEventListener('click',galleryView)
         panels.projects.appendChild(div)
-        setTimeout(()=> div.style.opacity = 1, 500/items.length*i)
+        setTimeout(()=> div.style.opacity = 'unset', 500/items.length*i)
     })
 }
 

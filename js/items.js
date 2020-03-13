@@ -5,7 +5,7 @@ var items = [
     tags : ['Node', 'Vue', 'Vuetify', 'MongoDB', 'Turf', 'Okta'],
     website : 'https://ejmap.herokuapp.com/',
     github :'https://github.com/ellisdod/urban-analytics',
-    imgs : ['project_1.png'],
+    imgs : ['urban_analytics_monitor.png','urban_analytics_map.png','urban_analytics_survey.png'],
     background : '#f5efef'
   },
   {
@@ -14,7 +14,7 @@ var items = [
     tags : ['Google Apps Script', 'Vue', 'Firebase'],
     website : 'https://xpnsr.co',
     github: '',
-    imgs : ['project_1.png'],
+    imgs : ['xpnsr_home.png', 'xpnsr_analytics.png', 'xpnsr_sheets.png'],
     background: '#f0f5ef'
   },
   {
@@ -32,7 +32,7 @@ var items = [
     tags : ['Django','Python'],
     website : 'http://murmurater.com',
     github:'',
-    imgs : ['murmurater_home.png','murmurater_results.png'],
+    imgs : ['murmurater-safari.png','murmurater-results.png'],
     background: '#f0eff5'
   },
   {
@@ -41,16 +41,8 @@ var items = [
     tags : ['Grav'],
     website : 'https://saferinthecity.frb.io/',
     github: '',
-    imgs : ['saferinthecity_0.png','saferinthecity_1.png','saferinthecity_2.png'],
+    imgs : ['safer_city_front.png','safer_city_gallery.png','safer_city_chapter.png'],
     background :'#f5eff2',
-  },
-  {
-    title : 'Birmingham Traffic',
-    desc : 'Visualises live traffic feeds in Birmingham',
-    tags : ['Django', 'Python'],
-    website : '',
-    github:'',
-    imgs : ['logger-iphone.png']
   },
   {
     title : 'Roam',
