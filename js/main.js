@@ -49,6 +49,7 @@
 
         const img = new htmlHelper().el('div',null,'main-image')
         img.addEventListener('click',nextImg)
+        img.addEventListener('touchstart',nextImg)
         img.style.backgroundImage = 'url('+config.dirImg+item.imgs[0]+')'
         const thumbs = item.imgs.map(
             imgPath => Helper.img(config.dirImg+imgPath)
