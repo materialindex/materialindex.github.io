@@ -228,16 +228,16 @@ function init() {
     items.forEach((item,i)=>{
         const div = new htmlProject(item,i,config).html()
         div.style.opacity = 0
-        div.addEventListener('click',galleryView)
+        div.addEventListener('click touchstart',galleryView)
         panels.projects.appendChild(div)
         setTimeout(()=> div.style.opacity = '', 500/items.length*i)
     })
 }
 
 
-document.getElementById('grid-view-switch').addEventListener('click',gridView)
+document.getElementById('grid-view-switch').addEventListener('click touchstart',gridView)
 
-panels.imgs.addEventListener('click',nextImg)
+panels.imgs.addEventListener('click touchstart',nextImg)
 
 const Helper = new htmlHelper()
 init()
