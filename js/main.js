@@ -142,6 +142,7 @@ function addToControlPanel (item) {
     if (clone.id===INFO_DIV_ID) clone.id = ''
     else {
         item.style.visibility = 'hidden'
+        item.style.height = 0
     }
     clone.classList.add('minimise')
     panels.control.appendChild(clone)
@@ -229,7 +230,7 @@ function init() {
         div.style.opacity = 0
         div.addEventListener('click',galleryView)
         panels.projects.appendChild(div)
-        setTimeout(()=> div.style.opacity = 'unset', 500/items.length*i)
+        setTimeout(()=> div.style.opacity = '', 500/items.length*i)
     })
 }
 
