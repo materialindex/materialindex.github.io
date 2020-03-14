@@ -94,13 +94,13 @@
 
 function nextImg() {
     const toUrl = (url) => 'url("'+config.dirImg + url.split(config.dirImg)[1]+'")'
+    const getFileName = (url) => url.match(/img\/\w+.\w+/)[0].split('img/')[1]
     const current = panels['main-img'].firstChild.style
+    const fileName = getFileName(current.backgroundImage)
     const thumbs = Array.from(panels['thumb-img'].querySelectorAll('img'))
-    console.log(current, thumbs)
     let found = false
     thumbs.forEach((x,i)=>{
-        console.log( toUrl(x.src), current.backgroundImage)
-        if (!found&&toUrl(x.src)===current.backgroundImage) {
+        if (!found&&getFileName(x.src)===fileName) {
             found = true
             const next = thumbs[i+1]
             if (!next) nextProject()
