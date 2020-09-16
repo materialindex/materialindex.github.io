@@ -27,9 +27,10 @@ body.gallery-view {
 }
 
 h1 {
-  font-size:2.8em;
+  font-size:3.8em;
   line-height: 0.9em;
   margin-left:-2px;
+  color:var(--secondary);
 }
 
 h2 {
