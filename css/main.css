@@ -1,8 +1,8 @@
 :root {
   --background-color-dark : #333338; /*#626266*/
   --primary: #92ffe1;
-  --primary-lighten:#546beb;
   --secondary: #ff9292;
+  --tertiary:#B38554;
 }
 html {
   height:100%;
@@ -50,14 +50,17 @@ a {
   color:#8e8e8e;
 }
 
+a:hover {
+  color: #8e8e8e;
+}
+
 @media (max-width:768px) {
-  h1 {
-    font-size: 2em;
-  }
   h3 {
     font-size: 1em;
   }
 }
+
+
 
 
 .gallery-view a {
@@ -81,6 +84,7 @@ a {
   padding-top:10px;
   font-size:12px;
   transition:border 0.7s;
+  z-index:500;
 }
 
 #grid-view-switch:hover {
@@ -115,9 +119,14 @@ a {
 a.icon {
   text-decoration:none;
 }
+
 a.icon svg {
   margin-bottom:5px;
   margin:5px;
+}
+
+a.icon svg:hover {
+  fill:var(--secondary);
 }
 
 .glyphs img, a.icon svg {
@@ -136,12 +145,21 @@ a.icon svg {
   right:20px;
   fill: red;
 }
+
+#company-panel p {
+  font-size:10px;
+  margin-bottom: 0.2rem;
+}
+
+#company-panel-mobile {
+  display:none;
+}
+
 #contact-panel {
   border:2px solid #0000001f;
   border-radius:20px;
   position:fixed;
-  bottom:10%;
-  left:20px;
+  right:20px;
   width:40px;
   text-align:center;
   z-index: 100;
@@ -150,6 +168,7 @@ a.icon svg {
 }
 
 @media (max-width:768px) {
+
   #contact-panel {
     margin-bottom:-16px;
     position: relative;
@@ -178,6 +197,23 @@ a.icon svg {
     width:58%;
     top:24px;
     left:20px;
+  }
+
+  #company-panel {
+    display:none !important;
+  }
+
+  #company-panel-mobile {
+    display:block;
+    position: absolute;
+    bottom:-250px;
+    padding-bottom:40px;
+    font-size:11px;
+  }
+
+  #company-panel-mobile p {
+    font-size:14px;
+    margin-bottom: 0.2rem;
   }
 }
 
