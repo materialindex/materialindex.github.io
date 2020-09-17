@@ -130,6 +130,19 @@ a.icon svg:hover {
   fill:var(--secondary);
 }
 
+a.icon span {
+  position:absolute;
+  margin-top:-23px;
+  right:50px;
+  display:none;
+  color:black;
+  font-size:11px;
+}
+
+a.icon:hover span {
+  display:block;
+}
+
 .glyphs img, a.icon svg {
   width:20px;
   height:20px;
