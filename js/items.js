@@ -12,7 +12,7 @@ var items = [
     title : 'Xpnsr',
     desc : 'A Gmail based receipt management app, driven by bayesian machine learning.',
     tags : ['Google Apps Script', 'Vue', 'Firebase'],
-    website : 'https://xpnsr.co',
+    website : '/xpnsr.html',
     github: '',
     imgs : ['xpnsr_home.png', 'xpnsr_analytics.png', 'xpnsr_sheets.png'],
     background: '#f0f5ef'
