@@ -1,3 +1,4 @@
+//git add --all && git commit -m "finial update" && git push -u origin
 const localCsv = [
     [
         "",
@@ -195,7 +196,7 @@ new Vue({
           @click="sendToBack(key)"
           >
             <template v-for="item in page.items">
-            <img v-if="item.tag==='img'" src="item.text" :class="item.class" :style="item.style"/>
+            <img v-if="item.tag==='img'" :src="item.text" :class="item.class" :style="item.style"/>
             <component v-else :is="item.tag" :class="item.class" :style="item.style">
               {{ item.text }}
             </component>
