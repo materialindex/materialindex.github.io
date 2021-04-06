@@ -117,7 +117,8 @@ new Vue({
             order:[]
     }),
     methods: {
-        createPages (data) {
+        createPages(data) {
+            console.log(data)
 
             const pages = data.forEach((x) => {
                 const key = x[0]
