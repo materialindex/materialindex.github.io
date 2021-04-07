@@ -32,6 +32,26 @@ body {
   height: 100%;
   width: 100%;
   background-color: #f7f7f7;
+  opacity: 1;
+  -webkit-transition: opacity 500ms ease-in;
+  -moz-transition: opacity 500ms ease-in;
+  -ms-transition: opacity 500ms ease-in;
+  -o-transition: opacity 500ms ease-in;
+  transition: opacity 500ms ease-in;
+}
+
+.cardx img {
+  height: 100%;
+}
+
+.cardx div {
+  overflow: hidden;
+}
+
+.cardx div:first-child {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 
@@ -311,16 +331,6 @@ a.icon:hover img {
   display: none;
 }
 
-#projects-panel {
-  max-width: 750px;
-  margin: auto;
-}
-
-@media (max-width:768px) {
-  #projects-panel {
-    padding-top: 0;
-  }
-}
 
 #info-panel [class*='col-'] {
   padding-left: 0;
