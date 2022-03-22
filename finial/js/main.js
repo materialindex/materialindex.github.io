@@ -150,6 +150,7 @@ new Vue({
                     title: x[1].trim(),
                     text: x[2].trim(),
                     tag: x[3].trim(),
+                    opts: x[4] ? JSON.parse(x[4]) : {}
                 })
                 if (!this.order.includes(key)) this.order.push(key)
   
@@ -191,7 +192,7 @@ new Vue({
         <div class="row">
 
           <div id="title-panel" class="col-7 col-sm-12">
-            <h1></h1>
+            <h1>Finial</h1>
             <h3></h3>
 
           </div>
@@ -220,6 +221,9 @@ new Vue({
           
             <div v-for="item in page.items" style="flex:1;" class="px-3 py-3">
             <img v-if="item.tag==='img'" :src="item.text" :class="item.class" :style="item.style"/>
+            <video v-else-if="item.tag==='video'" :poster="item.opts.poster" autoplay muted playsinline loop>
+              <source :src="item.text" :type="item.opts.type"/>
+            </video>
             <component v-else :is="item.tag" :class="item.class" :style="item.style">
               {{ item.text }}
             </component>
