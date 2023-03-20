@@ -1,0 +1,1 @@
+cd .. && gsutil rsync -r -x ".commands" "website" gs://www.circlus.io && cd "website"
