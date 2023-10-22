@@ -1,1 +1,4 @@
 cd .. && gsutil rsync -r -x ".commands" "website" gs://www.circlus.io && cd "website"
+
+//to recompile css run
+sass --watch scss/custom.scss public/bootstrap/css/bootstrap.min.css

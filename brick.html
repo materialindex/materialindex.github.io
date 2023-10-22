@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Material Index" />
+    <title>Material Index</title>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png" />
+    <link rel="manifest" href="img/site.webmanifest" />
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.2/examples/cover/" />
+    <script
+      type="text/javascript"
+      src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!--<link href="bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />-->
+
+    <link href="css/main.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="fonts/Gilroy-ExtraBold.otf" rel="stylesheet">
+    <link href="fonts/Gilroy-Light.otf" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:wght@400;700&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+</head>
+
+  <style>
+   .card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.library .card-title {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.card {
+    --bs-card-border-radius: 0;
+    --bs-card-inner-border-radius: 0;
+    --bs-card-spacer-y: 0.6rem;
+    --bs-card-spacer-x: 0.6rem;
+    height:100%;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+div.card-text {
+    font-size: 0.8rem;
+    flex-grow: 1;
+    align-items: end;
+    display: flex;
+}
+
+    </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-STWWW1XKRY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-STWWW1XKRY");
+  </script>
+
+  <script>
+    function toggleSidebar() {
+      document.querySelector(".sidebar").classList.toggle("active");
+      console.log(document.querySelector(".sidebar"));
+    }
+
+    function submitLogin() {
+      setTimeout(() => {
+        document.querySelector(".login-error").style.display = "block";
+      }, 500);
+    }
+  </script>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md bg-white fixed-top shadow-sm">
+        <div class="container-fluid px-0">
+          <div>
+            <a
+              class="navbar-brand flex-shrink-1 fw-bold"
+              style="margin-left: 7vw;"
+              href="#"
+              >Material Index</a
+            > 
+            <span class="navbar-brand" style="letter-spacing: 5px;"
+        >BRICK</span>
+
+          </div>
+
+          <div class="d-flex">
+            <div id="menu-dropdown" class="dropdown pr-4">
+              <button
+                class="btn btn-white dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="img/icons/menu.svg" />
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#partnerships">Partnership</a>
+                </li>
+                <li><a class="dropdown-item" href="#audits">Audits</a></li>
+                <li><a class="dropdown-item" href="#services">Services</a></li>
+                <li><a class="dropdown-item" href="#about">About</a></li>
+              </ul>
+            </div>
+
+            <a
+              href="#partnership"
+              class="btn btn-sm btn-white me-2 fw-bold menu-item-expanded"
+              >Partnership</a
+            >
+            <a
+              href="#audits"
+              class="btn btn-sm btn-white me-2 fw-bold menu-item-expanded"
+              >Audits</a
+            >
+            <a
+              href="#services"
+              class="btn btn-sm btn-white me-2 fw-bold menu-item-expanded"
+              >Services</a
+            >
+            <a
+              href="#about"
+              class="btn btn-sm btn-white me-4 fw-bold menu-item-expanded"
+              >About</a
+            >
+
+            <button
+              class="btn btn-outline-dark btn-sm me-2 me-md-5"
+              onclick="toggleSidebar()">
+              Login
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="sidebar bg-white">
+      <form class="nav flex-column justify-content-center px-4 text-muted">
+        <div class="mb-4 fw-bold">
+          <h5>Partnership Portal</h5>
+        </div>
+        <div class="form-group py-2">
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Email" />
+        </div>
+        <div class="login-error">Email not found</div>
+        <div class="form-group py-2">
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password" />
+        </div>
+        <div class="form-check py-2">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Remember me</label
+          >
+        </div>
+        <div class="py-2">
+          <button class="btn btn-primary" onclick="submitLogin()">
+            Submit
+          </button>
+        </div>
+        <div class="mt-5">
+          If you're interested in signing up contact
+          <a
+            href="mailto:hello@material-index.co?subject=Request to join Partnership Portal"
+            >hello@material-index.co</a
+          >
+        </div>
+      </form>
+    </div>
+
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner" >
+          <div class="carousel-item active">
+            <img src="img/ngamwongwan.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/warehouse.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item active">
+            <img src="img/school.jpg" class="d-block w-100" alt="...">
+          </div>
+         <div class="carousel-item">
+            <img src="img/robinson.jpeg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+ 
+
+    <div class="container px-4">
+
+        <div
+        id="partnership"
+        class="row flex-lg-row align-items-center g-5 py-5 half-height intersect"
+        >
+            <div class="col-12 col-sm-4 pa-5">
+               <h3>Zero Carbon</h3>
+               <div>All our bricks are from trusted reclaimed sources.</div>
+            </div>
+            <div class="col-12 col-sm-4">
+              <h3>Certified</h3>
+              <div>We can provide certification to UK building standards.</div>
+            </div>
+            <div class="col-12 col-sm-4">
+              <h3>Quick delivery</h3>
+              <div>We can deliver to site within 2 weeks of order.</div>
+            </div>
+    
+        </div>
+   
+
+
+      <div
+        id="panel-1"
+        class="align-items-center g-5 py-5 full-height library"
+        >
+        <div class="h3">Library</div>
+        <div class="row g-3">
+
+<div class="col-12 col-sm-4 col-md-3 col-lg-2">
+        <div class="card">
+            <img src="img/brick/red.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Handmade traditional red</h5>
+              <div class="card-text">Imperial</div>
+            </div>
+        </div>
+        </div>
+<div class="col-12 col-sm-4 col-md-3 col-lg-2">
+        <div class="card">
+            <img src="img/brick/plain_gault.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Plain Gault</h5>
+              <div class="card-text">Imperial</div>
+            </div>
+        </div>
+        </div>
+   
+<div class="col-12 col-sm-4 col-md-3 col-lg-2">
+        <div class="card">
+            <img src="img/brick/london_yellow.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">London Yellow Stock</h5>
+              <div class="card-text">Imperial</div>
+            </div>
+        </div>
+        </div>
+   
+<div class="col-12 col-sm-4 col-md-3 col-lg-2">
+        <div class="card">
+            <img src="img/brick/dark_georgian.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Dark Georgian</h5>
+              <div class="card-text">Imperial</div>
+            </div>
+        </div>
+        </div>
+   
+<div class="col-12 col-sm-4 col-md-3 col-lg-2">
+        <div class="card">
+            <img src="img/brick/wirecut_multi.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Wirecut Multi</h5>
+              <div class="card-text">Metric</div>
+            </div>
+        </div>
+        </div>
+   
+<div class="col-12 col-sm-4 col-md-3 col-lg-2">
+        <div class="card">
+            <img src="img/brick/dark_stock_multi.jpeg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Dark multi Stock</h5>
+              <div class="card-text">Metric</div>
+            </div>
+        </div>
+</div>
+   
+<div class="col-12 col-sm-4 col-md-3 col-lg-2">
+        <div class="card">
+            <img src="img/brick/cream_gault.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Cream Gault</h5>
+              <div class="card-text">Metric</div>
+            </div>
+        </div>
+        </div>
+   
+<div class="col-12 col-sm-4 col-md-3 col-lg-2">
+        <div class="card">
+            <img src="img/brick/low_carbon_special.webp" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Low carbon special blend</h5>
+              <div class="card-text">Imperial + Metric</div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+      </div>
+
+      
+
+      <div
+        id="audits"
+        class="row flex-lg-row-reverse align-items-center g-5 py-5 full-height">
+        <div class="col-12 col-md-6">
+          <img
+            src="img/townhouse.jpeg"
+            class="d-block mx-lg-auto img-fluid"
+            alt="Bootstrap Themes"
+            width="700"
+            height="500"
+            loading="lazy" />
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="col-sm-8 col-lg-8 mx-auto">
+            <h1 class="display-5 fw-bold mb-4">Material Audits</h1>
+            <p class="lead mb-4">
+              We provide material audits at any stage of a bulding's lifecycle.
+              We can provide valuation of the materials in a building prior to
+              it undergoing deconstruction, and tell you the potential embodied
+              carbon saving of these materials being re-used.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="services"
+        class="row flex-lg-row-reverse align-items-center g-5 py-5 full-height intersect"
+        data-function="changeBackground">
+        <div class="col-12 col-md-6">
+          <div class="col-sm-8 mx-auto">
+            <h1 class="display-5 fw-bold mb-4">Material Brokerage</h1>
+            <p class="lead mb-4">
+              We can assist you with the sourcing and specification of secondary
+              materials for your next project. This will enable you to meet your
+              embodied carbon targets.
+            </p>
+            <div>
+              <a
+                type="button"
+                class="btn btn-outline-dark btn-lg px-4 gap-3"
+                href="mailto:hello@material-index.co?subject=Consultancy Enquiry"
+                >Get in touch</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <img
+            src="img/glass-cropped.jpg"
+            class="d-block mx-lg-auto img-fluid"
+            alt="Bootstrap Themes"
+            width="700"
+            loading="lazy" />
+        </div>
+      </div>
+
+      
+      <!--<div
+        id="platform"
+        class="row row-reverse flex-lg-row align-items-center g-5 py-5 full-height bg-tertiary">
+        <div class="col-12 col-md-5">
+          <div class="col-sm-10 mx-auto">
+            <h1 class="display-5 fw-bold mb-4">Platform</h1>
+            <p class="lead mb-4">
+              We are building a platform to allow users to circulate materials
+              within a portfolio, as well as to trade materials between
+              partners.
+            </p>
+            <div>
+              <a
+                type="button"
+                class="btn btn-outline-dark btn-lg px-4 gap-3"
+                href="mailto:hello@material-index.co?subject=Request to join Partnership Portal"
+                >Sign-up here</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-7">
+          <img
+            src="img/platform-image.png"
+            class="d-block mx-lg-auto img-fluid"
+            alt="Bootstrap Themes"
+            width="100%"
+            loading="lazy" />
+        </div>
+      </div>
+    </div> -->
+
+    <div
+        id="about"
+        class="row align-items-center justify-content-center g-5 py-5 full-height">
+ 
+        <div class="col-12">
+          <div class="col-sm-6 mx-auto">
+            <h1 class="display-5 fw-bold mb-4">About Us</h1>
+            <p class="lead mb-4">
+              We are a UK based company formed to digitise the construction industry. We were formed by Morgan Lewis, an architect, Robert Smith, a mechanical engineer, and Ellis Dodwell, a software engineer.
+            </p>
+          </div>
+        </div>
+
+    </div>
+   
+      <div
+        id="about"
+        class="row align-items-center justify-content-center g-5 py-5 full-height">
+        <div class="col-12 col-md-5">
+          <div class="col-sm-8 mx-auto">
+            <h1 class="display-5 fw-bold mb-4">About Us</h1>
+            <p class="lead mb-4">
+              By background we are a mechanical engineer, architect, and
+              software engineer committed to helping the construction industry
+              become more sustainable.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="row gx-3 gx-md-5">
+            <div class="col-4">
+              <div
+                class="profile mb-3"
+                style="
+                  background: url(img/JF_01-04-22_Morgan-Lewis-Headshots_60_web-2_800.jpeg);
+                "></div>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p class="fw-semibold mb-0">Morgan Lewis</p>
+                  <a href="https://uk.linkedin.com/in/morgan-lewis-052bba75">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-linkedin"
+                      viewBox="0 0 16 16">
+                      <path
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                    </svg>
+                  </a>
+                </div>
+                <p>Architect</p>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="profile mb-3" style="background: grey"></div>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p class="fw-semibold mb-0">Rob Smith</p>
+                  <a href="https://uk.linkedin.com/in/morgan-lewis-052bba75">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-linkedin"
+                      viewBox="0 0 16 16">
+                      <path
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                    </svg>
+                  </a>
+                </div>
+                <p>Mechanical Engineer</p>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div
+                class="profile mb-3"
+                style="background: url(img/profile-ellis-dodwell.jpeg)"></div>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p class="fw-semibold mb-0">Ellis Dodwell</p>
+                  <a href="https://uk.linkedin.com/in/ellisdodwell">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-linkedin"
+                      viewBox="0 0 16 16">
+                      <path
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                    </svg>
+                  </a>
+                </div>
+                <p>Software Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer
+      class="mt-auto d-flex flex-row px-3 px-md-5 pb-3 pb-md-5 justify-content-between align-items-end text-white-50"
+      style="height: 600px; background-color: var(--bs-gray-800)">
+      <small style="max-width: 50%">
+        <div>Euston House</div>
+        <div>24 Eversholt St</div>
+        <div>London</div>
+        <div class="mb-2">NW1 1AD</div>
+        <div class="mb-2">© 2023 Material Index</div>
+        
+      </small>
+      <h2 class="fw-bold mb-0">Material Index</h2>
+    </footer>
+
+    <script>
+      function changeBackground(element) {
+        let observer = new IntersectionObserver(
+          function (entries) {
+            if (entries[0].intersectionRatio < 0.2) return;
+            element.style.transition = "background-color 1s ease";
+            element.style.backgroundColor = "var(--bs-gray-200)";
+          },
+          {
+            threshold: 0.4,
+          }
+        );
+        observer.observe(element);
+      }
+      document.querySelectorAll(".intersect").forEach((el) => {
+        window[el.dataset.function](el);
+      });
+    </script>
+  </body>
+</html>

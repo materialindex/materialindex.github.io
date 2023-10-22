@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="Material Index" />
+    <title>Material Index</title>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png" />
+    <link rel="manifest" href="img/site.webmanifest" />
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.2/examples/cover/" />
+    <script
+      type="text/javascript"
+      src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!--<link href="bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />-->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+      integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <link href="css/main.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  </head>
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-STWWW1XKRY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-STWWW1XKRY");
+  </script>
+
+  <script>
+    function toggleSidebar() {
+      document.querySelector(".sidebar").classList.toggle("active");
+      console.log(document.querySelector(".sidebar"));
+    }
+
+    function submitLogin() {
+      setTimeout(() => {
+        document.querySelector(".login-error").style.display = "block";
+      }, 500);
+    }
+  </script>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md bg-white fixed-top shadow-sm">
+        <div class="container-fluid px-0" style="height:100%;">
+          <div class="logo-container ms-2 ms-md-5">
+            <a
+            class="navbar-logo"
+              href="#"
+              >
+              <img src="img/logos/mi-logo.svg"/>
+              </a
+            >
+
+            <span
+              id="tagline-nav"
+              class="navbar-brand flex-shrink-1 text-primary"
+              >Digitising Reclaim</span
+            >
+          </div>
+
+          <div class="d-flex">
+            <div id="menu-dropdown" class="dropdown pr-4">
+              <button
+                class="btn btn-white dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="img/icons/menu.svg"/>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#hiring">Jobs</a></li>
+                <li><a class="dropdown-item" href="#audits">Audits</a></li>
+                <li><a class="dropdown-item" href="#brokerage">Brokerage</a></li>
+                <li>
+                  <a class="dropdown-item" href="#clients">Work</a>
+                </li>
+                <li><a class="dropdown-item" href="#about">About</a></li>
+              </ul>
+            </div>
+
+            <a
+            href="#hiring"
+            class="btn btn-sm btn-white me-2 fw-bold menu-item-expanded"
+            >Jobs</a
+            >
+            <a
+              href="#audits"
+              class="btn btn-sm btn-white me-2 fw-bold menu-item-expanded"
+              >Audits</a
+            >
+            <a
+              href="#brokerage"
+              class="btn btn-sm btn-white me-2 fw-bold menu-item-expanded"
+              >Brokerage</a
+            >
+            <a
+            href="#clients"
+            class="btn btn-sm btn-white me-2 fw-bold menu-item-expanded"
+            >Work</a
+            >
+            <a
+              href="#about"
+              class="btn btn-sm btn-white me-4 fw-bold menu-item-expanded"
+              >About</a
+            >
+
+            <button
+              class="btn btn-outline-dark btn-sm me-2 me-md-5"
+              onclick="toggleSidebar()">
+              Login
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="sidebar bg-white">
+      <form class="nav flex-column justify-content-center px-4 text-muted">
+        <div class="mb-4 fw-bold">
+          <h5>Partnership Portal</h5>
+        </div>
+        <div class="form-group py-2">
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder="Email" />
+        </div>
+        <div class="login-error">Email not found</div>
+        <div class="form-group py-2">
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            placeholder="Password" />
+        </div>
+        <div class="form-check py-2">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+          <label class="form-check-label" for="exampleCheck1"
+            >Remember me</label
+          >
+        </div>
+        <div class="py-2">
+          <button class="btn btn-primary" onclick="submitLogin()">
+            Submit
+          </button>
+        </div>
+        <div class="mt-5">
+          If you're interested in signing up contact
+          <a
+            href="mailto:hello@material-index.co.uk?subject=Request to join Partnership Portal"
+            >hello@material-index.co.uk</a
+          >
+        </div>
+      </form>
+    </div>
+    <div id="banner-images">
+
+     
+     <div
+      class="fadein banner p-4 p-md-5 mb-4 full-height"
+      style="background-image: url('img/circlus_banner_01.jpg')"
+      >
+     </div>
+     <!--
+       <div
+      class="fadein banner p-4 p-md-5 mb-4 full-height"
+      
+      >
+     </div>
+      -->
+   
+
+  </div>
+
+    <div class="p-4 p-md-5 mb-4 full-height">
+      <div style="margin-top: 40vh; margin-left: 13vw">
+        <!--<img id="tagline" src="img/CirclusWebsiteTagline.svg" /> -->
+        <!--<svg version="1.1" id="tagline" viewBox="0.0 0.0 487.0 100.0" fill="none" stroke="none" stroke-linecap="square"
+        stroke-miterlimit="10" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+        <clipPath id="p.0">
+          <path d="m0 0l487.0 0l0 100.0l-487.0 0l0 -100.0z" clip-rule="nonzero" />
+        </clipPath>
+        <g clip-path="url(#p.0)">
+          <path fill="#000000" fill-opacity="0.0" d="m0 0l487.0 0l0 100.0l-487.0 0z" fill-rule="evenodd" />
+          <path fill="#4eff68" d="m0 0l487.3701 0l0 84.850395l-487.3701 0z" fill-rule="evenodd" />
+          <path fill="#876445"
+            d="m29.625 22.293125q7.6875 0 12.453125 5.03125q4.78125 5.015625 4.78125 14.03125q0 9.015625 -4.671875 14.25q-4.65625 5.234375 -12.5625 5.234375l-16.90625 0l0 -38.546875l16.90625 0zm-0.671875 31.421875q4.0625 0 6.734375 -2.90625q2.6875 -2.921875 2.6875 -8.6875q0 -6.671875 -2.796875 -9.6875q-2.796875 -3.03125 -8.09375 -3.03125l-6.28125 0l0 24.3125l7.75 0zm30.884766 -31.421875l0 6.296875l-7.671875 0l0 -6.296875l7.671875 0zm0 10.625l0 27.921875l-7.671875 0l0 -27.921875l7.671875 0zm17.140625 -0.734375q3.0625 0 5.0625 1.140625q2.0 1.125 3.265625 3.3125l0.109375 0l0 -3.71875l7.28125 0l0 26.359375q0 5.624996 -3.578125 8.874996q-3.578125 3.265625 -10.859375 3.265625q-4.921875 0 -8.453125 -2.359375q-3.53125 -2.359375 -3.875 -6.609371l7.59375 0q0.515625 2.0312462 1.984375 2.9374962q1.484375 0.90625 3.734375 0.90625q2.953125 0 4.5625 -1.78125q1.609375 -1.7656212 1.609375 -4.937496l0 -3.875l-0.109375 0q-1.140625 2.0625 -3.34375 3.203125q-2.1875 1.125 -5.046875 1.125q-5.640625 0 -8.78125 -3.75q-3.125 -3.75 -3.125 -10.28125q0 -5.90625 3.28125 -9.859375q3.28125 -3.953125 8.6875 -3.953125zm-4.296875 13.703125q0 3.9375 1.609375 6.15625q1.625 2.203125 4.578125 2.203125q3.03125 0 4.78125 -2.203125q1.765625 -2.21875 1.765625 -5.546875q0 -4.09375 -1.671875 -6.3125q-1.65625 -2.234375 -4.890625 -2.234375q-2.859375 0 -4.515625 2.171875q-1.65625 2.15625 -1.65625 5.765625zm34.063477 -23.59375l0 6.296875l-7.671875 0l0 -6.296875l7.671875 0zm0 10.625l0 27.921875l-7.671875 0l0 -27.921875l7.671875 0zm15.734375 -8.359375l0 8.359375l5.625 0l0 5.140625l-5.625 0l0 14.0q0 1.71875 0.640625 2.390625q0.65625 0.671875 2.609375 0.671875q0.65625 0 1.265625 -0.046875q0.609375 -0.0625 1.109375 -0.171875l0 5.984375q-0.953125 0.171875 -2.125 0.21875q-1.171875 0.046875 -2.3125 0.046875q-4.984375 0 -6.921875 -1.6875q-1.9375 -1.703125 -1.9375 -4.765625l0 -16.640625l-4.640625 0l0 -5.140625l4.640625 0l0 -8.359375l7.671875 0zm17.198242 -2.265625l0 6.296875l-7.671875 0l0 -6.296875l7.671875 0zm0 10.625l0 27.921875l-7.671875 0l0 -27.921875l7.671875 0zm17.484375 -0.734375q5.6875 0 8.78125 2.25q3.109375 2.25 3.53125 6.625l-7.3125 0q-0.15625 -1.96875 -1.484375 -2.859375q-1.3125 -0.90625 -3.75 -0.90625q-2.21875 0 -3.234375 0.65625q-1.015625 0.65625 -1.015625 1.921875q0 1.296875 1.328125 2.125q1.328125 0.828125 5.359375 1.59375q6.4375 1.25 8.640625 3.203125q2.203125 1.9375 2.203125 5.109375q0 4.75 -3.46875 7.234375q-3.46875 2.46875 -9.265625 2.46875q-5.796875 0 -9.34375 -2.46875q-3.546875 -2.46875 -3.78125 -7.375l7.296875 0q0 2.21875 1.671875 3.46875q1.671875 1.234375 4.203125 1.234375q2.25 0 3.640625 -0.953125q1.40625 -0.96875 1.40625 -2.609375q0 -1.453125 -1.828125 -2.375q-1.8125 -0.921875 -6.671875 -1.921875q-4.796875 -0.953125 -6.9375 -2.71875q-2.125 -1.765625 -2.125 -4.765625q0 -4.4375 3.125 -6.6875q3.140625 -2.25 9.03125 -2.25zm25.441406 -9.890625l0 6.296875l-7.671875 0l0 -6.296875l7.671875 0zm0 10.625l0 27.921875l-7.671875 0l0 -27.921875l7.671875 0zm22.046875 -0.734375q5.34375 0 7.75 2.703125q2.421875 2.703125 2.421875 8.5l0 17.453125l-7.671875 0l0 -16.0q0 -3.28125 -1.125 -4.953125q-1.109375 -1.671875 -3.78125 -1.671875q-3.1875 0 -4.578125 1.90625q-1.375 1.890625 -1.375 5.828125l0 14.890625l-7.65625 0l0 -27.921875l7.28125 0l0 3.90625l0.15625 0q1.40625 -2.25 3.640625 -3.4375q2.25 -1.203125 4.9375 -1.203125zm27.103516 0q3.0625 0 5.0625 1.140625q2.0 1.125 3.265625 3.3125l0.109375 0l0 -3.71875l7.28125 0l0 26.359375q0 5.624996 -3.578125 8.874996q-3.578125 3.265625 -10.859375 3.265625q-4.921875 0 -8.453125 -2.359375q-3.53125 -2.359375 -3.875 -6.609371l7.59375 0q0.515625 2.0312462 1.984375 2.9374962q1.484375 0.90625 3.734375 0.90625q2.953125 0 4.5625 -1.78125q1.609375 -1.7656212 1.609375 -4.937496l0 -3.875l-0.109375 0q-1.140625 2.0625 -3.34375 3.203125q-2.1875 1.125 -5.046875 1.125q-5.640625 0 -8.78125 -3.75q-3.125 -3.75 -3.125 -10.28125q0 -5.90625 3.28125 -9.859375q3.28125 -3.953125 8.6875 -3.953125zm-4.296875 13.703125q0 3.9375 1.609375 6.15625q1.625 2.203125 4.578125 2.203125q3.03125 0 4.78125 -2.203125q1.765625 -2.21875 1.765625 -5.546875q0 -4.09375 -1.671875 -6.3125q-1.65625 -2.234375 -4.890625 -2.234375q-2.859375 0 -4.515625 2.171875q-1.65625 2.15625 -1.65625 5.765625zm62.98828 -23.59375q4.671875 0 7.875 3.015625q3.203125 3.0 3.203125 7.640625q0 3.625 -1.515625 6.015625q-1.515625 2.390625 -4.609375 3.625l0 0.109375q2.71875 0.71875 4.171875 3.25q1.453125 2.53125 1.578125 7.75q0.109375 5.21875 1.5 7.140625l-8.484375 0q-0.734375 -1.875 -1.0 -6.0625q-0.40625 -5.703125 -1.921875 -7.34375q-1.515625 -1.65625 -4.640625 -1.65625l-8.6875 0l0 15.0625l-8.484375 0l0 -38.546875l21.015625 0zm-3.0625 17.421875q2.671875 0 4.15625 -1.28125q1.484375 -1.296875 1.484375 -4.21875q0 -2.75 -1.4375 -4.03125q-1.4375 -1.296875 -4.203125 -1.296875l-9.46875 0l0 10.828125l9.46875 0zm33.15332 -7.53125q6.1875 0 9.890625 4.265625q3.703125 4.25 3.703125 10.859375l-0.046875 1.421875l-20.140625 0q0.15625 3.625 1.875 5.359375q1.734375 1.734375 4.953125 1.734375q2.078125 0 3.84375 -1.0625q1.765625 -1.0625 2.25 -2.578125l6.75 0q-1.5625 4.75 -4.8125 7.09375q-3.234375 2.328125 -8.265625 2.328125q-6.46875 0 -10.375 -4.078125q-3.890625 -4.09375 -3.890625 -10.609375q0 -6.25 3.984375 -10.484375q4.0 -4.25 10.28125 -4.25zm-6.59375 11.703125l12.46875 0q-0.5625 -3.09375 -2.0 -4.515625q-1.4375 -1.421875 -4.140625 -1.421875q-2.796875 0 -4.4375 1.59375q-1.625 1.578125 -1.890625 4.34375zm38.070312 -11.703125q5.40625 0 9.109375 2.796875q3.703125 2.78125 4.015625 7.765625l-7.515625 0q-0.34375 -2.390625 -1.765625 -3.59375q-1.421875 -1.203125 -3.890625 -1.203125q-3.09375 0 -4.8125 2.53125q-1.703125 2.53125 -1.703125 6.546875q0 4.0 1.6875 6.40625q1.6875 2.390625 4.65625 2.390625q2.5625 0 4.140625 -1.453125q1.59375 -1.46875 1.984375 -4.234375l7.375 0q-0.765625 5.53125 -4.328125 8.5q-3.546875 2.96875 -9.109375 2.96875q-6.21875 0 -10.15625 -3.984375q-3.921875 -4.0 -3.921875 -10.328125q0 -6.78125 3.859375 -10.9375q3.859375 -4.171875 10.375 -4.171875zm25.523438 -9.890625l0 38.546875l-7.671875 0l0 -38.546875l7.671875 0zm18.84375 9.890625q6.203125 0 9.21875 2.03125q3.015625 2.03125 3.015625 5.71875l0 14.96875q0 1.6875 0.21875 3.375q0.234375 1.6875 0.765625 2.5625l-7.78125 0q-0.203125 -0.640625 -0.359375 -1.3125q-0.140625 -0.671875 -0.1875 -1.34375q-1.609375 1.65625 -4.0 2.546875q-2.390625 0.875 -5.390625 0.875q-4.328125 0 -6.921875 -2.171875q-2.578125 -2.1875 -2.578125 -6.21875q0 -3.890625 2.421875 -5.953125q2.4375 -2.078125 8.84375 -2.796875q4.453125 -0.421875 5.875 -1.09375q1.421875 -0.671875 1.421875 -2.328125q0 -1.875 -1.09375 -2.8125q-1.09375 -0.9375 -3.828125 -0.9375q-2.375 0 -3.640625 1.015625q-1.265625 1.015625 -1.484375 3.203125l-7.671875 0q0.328125 -4.59375 3.78125 -6.953125q3.46875 -2.375 9.375 -2.375zm-6.34375 20.71875q0 1.65625 1.125 2.609375q1.140625 0.953125 3.59375 0.953125q3.0625 0 4.625 -1.609375q1.5625 -1.609375 1.5625 -4.6875l0 -2.984375q-0.671875 0.546875 -1.796875 0.828125q-1.125 0.28125 -4.046875 0.703125q-2.609375 0.34375 -3.84375 1.359375q-1.21875 1.015625 -1.21875 2.828125zm32.429688 -30.609375l0 6.296875l-7.671875 0l0 -6.296875l7.671875 0zm0 10.625l0 27.921875l-7.671875 0l0 -27.921875l7.671875 0zm22.125 -0.734375q3.109375 0 5.140625 1.203125q2.03125 1.1875 3.0 3.4375q1.578125 -2.25 3.734375 -3.4375q2.171875 -1.203125 4.734375 -1.203125q5.0625 0 7.609375 2.578125q2.5625 2.578125 2.5625 7.140625l0 18.9375l-7.671875 0l0 -16.140625q0 -3.8125 -1.125 -5.140625q-1.109375 -1.34375 -3.5625 -1.34375q-2.59375 0 -3.875 1.75q-1.265625 1.734375 -1.265625 5.078125l0 15.796875l-7.671875 0l0 -17.1875q0 -2.765625 -1.0625 -4.09375q-1.046875 -1.34375 -3.5625 -1.34375q-2.1875 0 -3.6875 1.6875q-1.5 1.6875 -1.5 4.5625l0 16.375l-7.671875 0l0 -27.921875l7.21875 0l0 3.796875l0.109375 0q1.640625 -2.296875 3.78125 -3.40625q2.15625 -1.125 4.765625 -1.125z"
+            fill-rule="nonzero" />
+        </g>
+      </svg>-->
+      </div>
+      <div id="banner-text">
+        <div class="banner-text-wrapper">
+          <div class="banner-text-slider">
+            <h3 class="mb-5 display-3 banner-text banner-text-0"><span></span></h3>
+          </div>
+        </div>
+        <!--<div class="banner-text-wrapper">
+          <div class="banner-text-slider">
+            <h3 class="mb-5 display-3 banner-text banner-text-1"><span></span></h3>
+          </div>
+        </div>
+        <div class="banner-text-wrapper">
+          <div class="banner-text-slider">
+            <h3 class="mb-5 display-3 banner-text banner-text-2"><span></span></h3>
+          </div>
+        </div>
+        <div class="banner-text-wrapper">
+          <div class="banner-text-slider">
+            <h3 class="mb-5 display-3 banner-text banner-text-3"><span></span></h3>
+          </div>
+        </div>-->
+      </div>
+    </span>
+    </div>
+
+ 
+
+    <div class="container-fluid px-4">
+      <div
+        id="panel-1"
+        class="row flex-lg-row-reverse align-items-center g-5 py-5 mb-5 full-height intersect"
+        data-function="createChart">
+        <div class="col-12 col-md-6">
+          <div class="col-lg-10 mx-auto text-center">
+            <div class="fw-bold mx-auto" style="margin-bottom: -2vw">
+              UK Waste by Sector (million tonnes)
+            </div>
+            <canvas
+              id="chart"
+              width="400"
+              height="400"
+              alt="Chart"
+              loading="lazy"></canvas>
+            <div style="margin-top: -2vw">
+              Source:
+              <a
+                href="https://www.gov.uk/government/statistics/uk-waste-data/uk-statistics-on-waste#recovery-rate-from-non-hazardous-construction-and-demolition-cd-waste">
+                UK Gov (2018)
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="col-sm-8 col-lg-8 mx-auto">
+            <h2 class="display-5 fw-bold mb-4">The challenge</h2>
+            <p class="lead mb-4">
+              Construction generates over 50% of the UK’s landfill and the embodied carbon of replacement materials is over 14% of total UK emissions. Yet reclaim rates are less than 2%.
+            </p>
+            <p class="lead mb-4">
+              Material Index digitises the reclaim industry, closing the loop between demolition and construction.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+      id="hiring"
+      class="row flex-lg-row align-items-center g-5 py-5 full-height intersect"
+      data-function="changeBackground"
+      >
+      <div class="col-12 col-md-6">
+        <img
+          src="img/laptop-tablet-site4.png"
+          class="d-block mx-lg-auto img-fluid"
+          alt="Bootstrap Themes"
+          width="700"
+          alt="An office foyer with reception desk."
+          loading="lazy" />
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="col-sm-10 mx-auto">
+          <h2 class="display-5 fw-bold mb-4">We're hiring</h2>
+          <p class="lead mb-4">
+            Material Index are actively recruiting for a variety of roles. If you are an ambitious built environmental professional with a strong commitment to sustainability please apply.
+          </p>
+          <p>
+            <a href="/public/docs/231010_JD_Built Environment Engineers" download>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>file-download</title><path d="M14,2H6C4.89,2 4,2.89 4,4V20C4,21.11 4.89,22 6,22H18C19.11,22 20,21.11 20,20V8L14,2M12,19L8,15H10.5V12H13.5V15H16L12,19M13,9V3.5L18.5,9H13Z" /></svg>
+            </a>
+            Built Environment Engineers
+          </p>
+          <p>
+            <a href="/public/docs/MI_P2AA_231010.pdf" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>file-download</title><path d="M14,2H6C4.89,2 4,2.89 4,4V20C4,21.11 4.89,22 6,22H18C19.11,22 20,21.11 20,20V8L14,2M12,19L8,15H10.5V12H13.5V15H16L12,19M13,9V3.5L18.5,9H13Z" /></svg>
+            </a>
+            Architectural Assistants (Part 1 & 2)
+          </p>
+          
+          <div>
+            Please send a short cover letter and CV to 
+            <a
+              href="mailto:team@material-index.co.uk?subject=Job Application"
+              >team@material-index.co.uk</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <div
+        id="audits"
+        class="row flex-lg-row-reverse align-items-center g-5 py-5 full-height">
+        <div class="col-12 col-md-6">
+          <img
+            src="img/525_Material Index_Site_03b.jpg"
+            class="d-block mx-lg-auto img-fluid"
+            alt="A man wearing hi-vis scanning a building site using Material Index's software."
+            width="700"
+            height="500
+            loading="lazy" />
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="col-sm-8 col-lg-8 mx-auto">
+            <h2 class="display-5 fw-bold mb-4">Audits</h2>
+            <p class="lead mb-4">
+              We undertake pre-demolition, pre-refurbishment and pre-redevelopment audits, at all stages of a building's lifecycle, to meet BREEAM and Circular Economy Statements using our proprietary platform. 
+            </p>
+            <p class="lead mb-5">
+              We provide information on material valuation, reuse pathways, deconstruction advice and embodied carbon data, accessible through our platform.
+            </p>
+            <div>
+              <a
+                type="button"
+                class="btn btn-outline-dark btn-lg px-4 gap-3"
+                href="mailto:hello@material-index.co.uk?subject=Audit Enquiry"
+                >Get in touch</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="brokerage"
+        class="row flex-lg-row-reverse align-items-center g-5 py-5 full-height intersect"
+        data-function="changeBackground">
+        <div class="col-12 col-md-6">
+          <div class="col-sm-8 mx-auto">
+            <h2 class="display-5 fw-bold mb-4">Brokerage</h2>
+            <p class="lead mb-4">
+              We specialise in diverting materials arising from the refit, deconstruction and demolition of buildings that would be sent to waste being reused. We provide traceability on the sending of materials to the secondary supply chain, and their procurements. 
+            </p>
+            <p class="lead mb-5">
+              We can assist you with the sourcing and specification of secondary materials for your next project, helping you meet your embodied carbon targets.            </p>
+            <div>
+              <a
+                type="button"
+                class="btn btn-outline-dark btn-lg px-4 gap-3"
+                href="mailto:hello@material-index.co.uk?subject=Consultancy Enquiry"
+                >Get in touch</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <img
+            src="img/glass-cropped.jpg"
+            class="d-block mx-lg-auto img-fluid"
+            alt="Bootstrap Themes"
+            width="700"
+            loading="lazy" 
+            alt="A modern glazed building facade."
+            />
+        </div>
+      </div>
+
+      <div
+      id="clients"
+      class="row flex-column g-5 py-5 full-height intersect text-white  align-items-center justify-content-center dark-background"
+      >
+      <h2 class="display-5 fw-bold mb-4 text-center">Our Clients</h2>
+      <div class="row align-items-center justify-content-center">
+      
+      <div class="col-sm-12 col-md-6 py-5 justify-content-center">
+          <p class="lead text-center">
+            We work closely with asset managers, developers, contractors and reclaim businesses, to help our industry partners source and sell secondary construction components.
+          </p>
+      </div>
+      </div>
+
+      <div class="row flex-lg-row align-items-center justify-content-center g-5 ">
+        <div class="col-md-2 client-logo" title="Sir Robert McAlpine" style="background-image:url('img/logos/srm-logo.png');"></div>
+        <div class="col-md-2 client-logo" title="The Crown Estate"  style="background-image:url('img/logos/crown-logo.png');"></div>
+        <div class="col-md-2 client-logo" title="Fabrix logo" style="background-image:url('img/logos/fabrix-logo.png');"></div>
+        <div class="col-md-2 client-logo" title="Shaftesbury" style="background-image:url('img/logos/shaftesbury-logo.png');"></div>
+        <div class="col-md-2 client-logo" title="GXN" style="background-image:url('data:image/svg+xml,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%20standalone%3D%22no%22%3F%3E%0A%3Csvg%20width%3D%2253px%22%20height%3D%2222px%22%20viewBox%3D%220%200%2053%2022%22%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%3E%0A%20%20%20%20%3Cdefs%3E%0A%20%20%20%20%20%20%20%20%3Cpolygon%20id%3D%22path-1%22%20points%3D%229.92443256%2021.4812962%209.92443256%200.0331418043%200.0152109468%200.0331418043%200.0152109468%2021.4812962%209.92443256%2021.4812962%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%20%20%20%20%3Cpolygon%20id%3D%22path-3%22%20points%3D%2216.7203129%2021.8440796%200%2021.8440796%200%200%2016.7203129%200%2016.7203129%2021.8440796%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%3C%2Fdefs%3E%0A%20%20%20%20%3Cg%20id%3D%223XN-casepage%22%20stroke%3D%22none%22%20stroke-width%3D%221%22%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%0A%20%20%20%20%20%20%20%20%3Cg%20id%3D%22module-gxn-320%22%20transform%3D%22translate(-26.000000%2C%20-6795.000000)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22gxn-logo-green%22%20transform%3D%22translate(26.000000%2C%206795.000000)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22gxn-logo%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolygon%20id%3D%22Fill-1%22%20fill%3D%22%23103727%22%20points%3D%2237.5247623%2021.6114239%2042.1919163%2021.6114239%2042.1919163%200.658002083%2037.5247623%200.658002083%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group-16%22%20transform%3D%22translate(0.000000%2C%200.011606)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group-4%22%20transform%3D%22translate(42.990184%2C%200.157558)%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cmask%20id%3D%22mask-2%22%20fill%3D%22white%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cuse%20xlink%3Ahref%3D%22%23path-1%22%3E%3C%2Fuse%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fmask%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Clip-3%22%3E%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M4.12915134%2C0.0331418043%20C2.27528288%2C0.0331418043%200.35209528%2C1.30580838%200.0152109468%2C2.46957811%20L0.0152109468%2C5.84711968%20C0.446864929%2C4.8900104%201.53621357%2C4.30725575%202.44774355%2C4.30725575%20C4.32639277%2C4.30725575%205.10832609%2C5.48320245%205.10832609%2C7.44125807%20L5.10832609%2C21.4812962%20L9.92449953%2C21.4812962%20L9.92449953%2C7.60616894%20C9.92449953%2C3.64169776%208.80601675%2C0.0331418043%204.12915134%2C0.0331418043%22%20id%3D%22Fill-2%22%20fill%3D%22%23103727%22%20mask%3D%22url(%23mask-2)%22%3E%3C%2Fpath%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolygon%20id%3D%22Fill-5%22%20fill%3D%22%23103727%22%20points%3D%2227.8538713%206.56840104%2031.6831679%200.655963721%2036.9309953%200.655963721%2030.4176749%2010.3599593%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolygon%20id%3D%22Fill-7%22%20fill%3D%22%23103727%22%20points%3D%2227.6129957%2015.3291691%2031.684072%2021.5975217%2036.9318995%2021.5975217%2027.6129957%207.69804048%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolygon%20id%3D%22Fill-9%22%20fill%3D%22%23103727%22%20points%3D%2226.5543216%2015.6604869%2022.725025%2021.5729242%2017.4771976%2021.5729242%2023.9905179%2011.8689286%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpolygon%20id%3D%22Fill-11%22%20fill%3D%22%23103727%22%20points%3D%2226.794494%206.90065817%2022.725092%200.632653535%2017.4775994%200.632653535%2026.794494%2014.5317868%22%3E%3C%2Fpolygon%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Group-15%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cmask%20id%3D%22mask-4%22%20fill%3D%22white%22%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cuse%20xlink%3Ahref%3D%22%23path-3%22%3E%3C%2Fuse%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fmask%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cg%20id%3D%22Clip-14%22%3E%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpath%20d%3D%22M9.93808784%2C9.33601594%20L9.93808784%2C12.755655%20L12.5658526%2C12.755655%20L12.5658526%2C17.6226131%20C12.2289683%2C17.7816094%2011.441677%2C17.9082498%2010.4856086%2C17.9082498%20C10.2960693%2C17.9082498%2010.1082044%2C17.8960729%209.92435796%2C17.8818084%20L9.92435796%2C21.8041821%20C10.0733774%2C21.8080092%2010.2207224%2C21.8142716%2010.3734255%2C21.8142716%20C12.8752772%2C21.8142716%2015.3985609%2C21.1167056%2016.7203129%2C20.605969%20L16.7203129%2C9.33601594%20L9.93808784%2C9.33601594%20Z%20M15.1798875%2C5.2490793%20L16.0796969%2C1.34514503%20C15.1507534%2C0.868503909%2013.2680857%2C-0.0301559464%2010.8221581%2C-0.0301559464%20C10.5184264%2C-0.0301559464%2010.2207224%2C-0.0179789836%209.92435796%2C0.00219998332%20L9.92435796%2C4.37477337%20C10.2090018%2C4.34833197%2010.4973292%2C4.33024048%2010.7953681%2C4.33024048%20C12.8752772%2C4.33024048%2014.1407701%2C4.71050963%2015.1798875%2C5.2490793%20L15.1798875%2C5.2490793%20Z%20M0%2C11.1455126%20C0%2C14.2896044%200.955733487%2C17.0819559%202.67029391%2C18.9554687%20C4.19297092%2C20.5920525%206.29263769%2C21.5488138%209.10391401%2C21.7659117%20L9.10391401%2C17.759343%20C6.3408597%2C17.1623239%204.49871187%2C14.7258876%204.49871187%2C10.8922318%20C4.49871187%2C7.02413257%206.40080234%2C5.04589798%209.10391401%2C4.49723883%20L9.10391401%2C0.0783929792%20C3.78274894%2C0.767956988%200.0251156312%2C4.70842216%200%2C11.1455126%20L0%2C11.1455126%20Z%22%20id%3D%22Fill-13%22%20fill%3D%22%23103727%22%20mask%3D%22url(%23mask-4)%22%3E%3C%2Fpath%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%20%20%20%20%3C%2Fg%3E%0A%20%20%20%20%3C%2Fg%3E%0A%3C%2Fsvg%3E');"></div>
+      </div>
+
+    </div>
+
+    <!--
+      <div
+        id="partnership"
+        class="row flex-lg-row align-items-center g-5 py-5 full-height"
+        >
+        <div class="col-12 col-md-6">
+          <img
+            src="img/crick.jpeg"
+            class="d-block mx-lg-auto img-fluid"
+            alt="Bootstrap Themes"
+            width="700"
+            alt="An office foyer with reception desk."
+            loading="lazy" />
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="col-sm-10 mx-auto">
+            <h2 class="display-5 fw-bold mb-4">Partners</h2>
+            <p class="lead mb-4">
+              We are an advocate for circularity in the built environment, enabled through better technology. We are pleased to be part of the following networks:
+            </p>
+            <div>
+              <a
+                type="button"
+                class="btn btn-outline-dark btn-lg px-4 gap-3"
+                href="mailto:hello@material-index.co.uk?subject=Request to join Partnership Portal"
+                >Become a partner</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    -->
+
+      
+      <!--<div
+        id="platform"
+        class="row row-reverse flex-lg-row align-items-center g-5 py-5 full-height bg-tertiary">
+        <div class="col-12 col-md-5">
+          <div class="col-sm-10 mx-auto">
+            <h2 class="display-5 fw-bold mb-4">Platform</h2>
+            <p class="lead mb-4">
+              We are building a platform to allow users to circulate materials
+              within a portfolio, as well as to trade materials between
+              partners.
+            </p>
+            <div>
+              <a
+                type="button"
+                class="btn btn-outline-dark btn-lg px-4 gap-3"
+                href="mailto:hello@material-index.co.uk?subject=Request to join Partnership Portal"
+                >Sign-up here</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-7">
+          <img
+            src="img/platform-image.png"
+            class="d-block mx-lg-auto img-fluid"
+            alt="Bootstrap Themes"
+            width="100%"
+            loading="lazy" />
+        </div>
+      </div>
+    </div> 
+
+    <div
+        id="about"
+        class="row align-items-center justify-content-center g-5 py-5 full-height">
+ 
+        <div class="col-12">
+          <div class="col-sm-6 mx-auto">
+            <h2 class="display-5 fw-bold mb-4">About Us</h2>
+            <p class="lead mb-4">
+              We are a UK based company formed to digitise the construction industry. We were formed by Morgan Lewis, an architect, Robert Smith, a mechanical engineer, and Ellis Dodwell, a software engineer.
+            </p>
+          </div>
+        </div>
+
+    </div>-->
+
+      <div
+        id="about"
+        class="row align-items-center justify-content-center g-5 py-5 full-height intersect"
+        data-function="changeBackground">
+        <div class="col-12 col-md-5">
+          <div class="col-sm-8 mx-auto">
+            <h2 class="display-5 fw-bold mb-4">About Us</h2>
+            <p class="lead mb-4">
+               We are architects, engineers and software developers committed to helping the construction industry become more sustainable.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="row gx-3 gx-md-5">
+            <div class="col-4">
+              <div
+                class="profile mb-3"
+                style="
+                  background: url(img/JF_01-04-22_Morgan-Lewis-Headshots_60_web-2_800.jpeg);
+                "></div>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p class="fw-semibold mb-0">Morgan Lewis</p>
+                  <a href="https://uk.linkedin.com/in/morgan-lewis-052bba75">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-linkedin"
+                      viewBox="0 0 16 16">
+                      <path
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                    </svg>
+                  </a>
+                </div>
+                <p>Architect</p>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div class="profile mb-3" style="
+              background: url(img/rob_smith.png);
+            "></div>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p class="fw-semibold mb-0">Rob Smith</p>
+                  <a href="https://uk.linkedin.com/in/robert-smith-ceng-mimeche-58285922">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-linkedin"
+                      viewBox="0 0 16 16">
+                      <path
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                    </svg>
+                  </a>
+                </div>
+                <p>Mechanical Engineer</p>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div
+                class="profile mb-3"
+                style="background: url(img/profile-ellis-dodwell.jpeg)"></div>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p class="fw-semibold mb-0">Ellis Dodwell</p>
+                  <a href="https://uk.linkedin.com/in/ellisdodwell">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      fill="currentColor"
+                      class="bi bi-linkedin"
+                      viewBox="0 0 16 16">
+                      <path
+                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />
+                    </svg>
+                  </a>
+                </div>
+                <p>Software Developer</p>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div
+                class="profile mb-3"
+                style="background: url(img/justina.jpeg)"></div>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p class="fw-semibold mb-0">Justina Braskute</p>
+                 
+                </div>
+                <p>Architectural Assistant</p>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <div
+                class="profile mb-3"
+                style="background: url(img/hamzah.jpeg)"></div>
+              <div>
+                <div class="d-flex justify-content-between">
+                  <p class="fw-semibold mb-0">Hamzah Rezq</p>
+                </div>
+                <p>Architectural Assistant</p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <footer
+      class="mt-auto d-flex flex-row px-3 px-md-5 pb-3 pb-md-5 justify-content-between align-items-end text-white-50 dark-background"
+      style="height: 600px;">
+      <small style="max-width: 50%">
+        <div>Euston House</div>
+        <div>24 Eversholt St</div>
+        <div>London</div>
+        <div class="mb-3">NW1 1AD</div>
+        <div class="mb-3">
+          All photos © 2023 <a style="text-decoration:none;" class="text-white-50" href="http://jnphotographs.co.uk/">James Newton</a>
+        </div>
+        <div>© 2023 Material Index</div>
+      </small>
+    
+              <img src="img/logos/mi-logo.svg" style="height:70px;filter:invert(0.5);"/>
+  
+  
+    </footer>
+
+    <script src="js/tagline.js"></script>
+    <script src="js/chart.js"></script>
+    <script>
+      function changeBackground(element) {
+        let observer = new IntersectionObserver(
+          function (entries) {
+            if (entries[0].intersectionRatio < 0.2) return;
+            element.style.transition = "background-color 1s ease";
+            element.style.backgroundColor = "var(--bs-gray-200)";
+          },
+          {
+            threshold: 0.4,
+          }
+        );
+        observer.observe(element);
+      }
+
+      function changeBannerText(text, index) {
+          const wrapper = document.querySelector(`.banner-text-${index}`);
+          if (!wrapper) return null
+          wrapper.style.display = 'none'
+          setTimeout(()=>{
+            textElement = wrapper.firstChild
+            textElement.innerText = text || '';
+            textElement.classList.remove(`banner-text-${index}`);
+            void textElement.offsetWidth; // Triggers dom refresh
+            textElement.classList.add(`banner-text-${index}`);
+            wrapper.style.display = 'block'
+          },0)
+      }
+
+      function changeBannerImage(image, index) {
+        const wrapper = document.getElementById("banner-images")
+        var arr = document.querySelectorAll(".banner");
+        const div = arr[0]
+        console.log('setting opacity', div.id)
+        //div.style.opacity = 1
+        arr.forEach(el=>el.style.opacity = 1);
+        setTimeout(function(){
+            console.log('removing', div.id)
+            div.remove()
+        },2000)
+  
+      
+        const el = document.createElement('div')
+        el.id = index
+        el.classList = 'fadein banner p-4 p-md-5 mb-4 full-height'
+        el.style.backgroundImage = `url('img/${image}')`
+        el.style.opacity = 0
+        wrapper.append(el)
+      }
+      
+
+      window.onload = () =>{
+        let index = 0
+        /*const texts = [
+        ['Making','a circular','construction', 'industry'],
+        ['Digitising', 'reclaim'],
+        ['Valuing','building','materials'],
+        ['Turning', 'waste', 'into', 'an asset']
+        ]*/
+
+        const texts = [
+        ['A Circular Construction Industry'],
+        ['Digitising Reclaim'],
+       // ['Valuing building components'],
+        ['Turning Waste into Assets']
+        ]
+
+        const images = [
+          '525_Material Index_Team_07.jpg',
+          '525_Material Index_Site_01a.jpg',
+          'circlus_banner_01.jpg',
+        ]
+
+        function setTexts() {
+          changeBannerText(texts[index % texts.length][0],0);
+          //changeBannerImage(images[index])
+          index ++ ; // Increment index and wrap around to the beginning if necessary
+          changeBannerImage(images[index % texts.length ], index)
+        }
+        changeBannerImage(images[index % texts.length], index)
+        setInterval(setTexts, 3000);
+        setTexts()
+        } 
+
+
+
+      window.addEventListener("DOMContentLoaded", function(e) {
+
+// Original JavaScript code by Chirp Internet: chirpinternet.eu
+// Please acknowledge use of this code by including this header.
+
+
+
+}, false);
+
+
+      document.querySelectorAll(".intersect").forEach((el) => {
+        window[el.dataset.function](el);
+      });
+    
+      
+    </script>
+  </body>
+</html>

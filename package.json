@@ -1,0 +1,21 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "description": "'Material Index website'",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "firebase deploy --only hosting",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "sass --watch scss/custom.scss public/css/output.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/circlusdev/website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/circlusdev/website/issues"
+  },
+  "homepage": "https://github.com/circlusdev/website#readme"
+}
