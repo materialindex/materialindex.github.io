@@ -202,7 +202,7 @@ a.btn {
 footer {
   display: flex;
   color: rgb(92, 92, 92);
-  flex-flow: column-reverse;
+  flex-flow: column;
 }
 
 .consult-item svg {
@@ -352,11 +352,14 @@ a svg {
 
 .client-logo {
   height: 60px;
-  filter: grayscale(1) invert(1);
+  filter: grayscale(1);
   mix-blend-mode: lighten;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+}
+.client-logo.invert {
+  filter: grayscale(1) invert(1);
 }
 
 .logo-banner {
