@@ -1,10 +1,33 @@
 {
   "hosting": {
-    "public": "public",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
+    "public": "docs",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "https://material-index.co.uk",
+        "type": 301
+      },
+      {
+        "source": "https://material-index.co/#about",
+        "destination": "https://material-index.co.uk/#about",
+        "type": 301
+      },
+      {
+        "source": "https://material-index.co/#audits",
+        "destination": "https://material-index.co.uk/#audits",
+        "type": 301
+      },
+      {
+        "source": "https://material-index.co/#partnerships",
+        "destination": "https://material-index.co.uk/#partnerships",
+        "type": 301
+      },
+      {
+        "source": "https://material-index.co/#services",
+        "destination": "https://material-index.co.uk/#services",
+        "type": 301
+      }
     ],
     "rewrites": [
       {
