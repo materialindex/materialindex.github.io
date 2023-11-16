@@ -350,7 +350,7 @@ a svg {
   margin-bottom: 4px;
 }
 
-.client-logo {
+.client-logo > div {
   height: 60px;
   filter: grayscale(1);
   mix-blend-mode: lighten;
@@ -358,7 +358,7 @@ a svg {
   background-repeat: no-repeat;
   background-position: center;
 }
-.client-logo.invert {
+.client-logo > div.invert {
   filter: grayscale(1) invert(1);
 }
 
