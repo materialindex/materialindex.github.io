@@ -22,17 +22,27 @@ h3.display-3 {
 }
 
 h3.banner-text span {
-  background-color: #3a3a3ad1;
+  background-color: #0000006e;
   padding: 0 1rem;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   line-height: 3rem;
 }
 
-p {
+p,
+li {
   font-family: "Montserrat", serif;
   font-weight: 300;
+  font-size: 1.1rem;
 }
+.highlight {
+  background: #ffc200;
+  font-style: italic;
+  padding: 0.5rem;
+  line-height: 3rem;
+  -webkit-box-decoration-break: clone;
+}
+
 button {
   -webkit-appearance: none !important; /*fix for chrome iOS*/
 }
