@@ -7,7 +7,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Montserrat", sans serif;
+  font-family: "Inter", sans serif;
   font-style: normal;
   font-weight: 700;
 }
@@ -22,7 +22,7 @@ h3.display-3 {
 }
 
 h3.banner-text span {
-  background-color: #0000006e;
+  background-color: #30363cb0;
   padding: 0 1rem;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
@@ -31,8 +31,8 @@ h3.banner-text span {
 
 p,
 li {
-  font-family: "Montserrat", serif;
-  font-weight: 300;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
   font-size: 1.1rem;
 }
 .highlight {
@@ -260,6 +260,7 @@ div.profile:after {
   border-radius: 5px;
 }
 .lead {
+  font-weight: 400;
   font-size: 1rem;
 }
 @media (min-width: 576px) {
