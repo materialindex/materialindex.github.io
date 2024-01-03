@@ -43,6 +43,9 @@ li {
   -webkit-box-decoration-break: clone;
 }
 
+p.caption {
+  font-size: 0.8rem;
+}
 button {
   -webkit-appearance: none !important; /*fix for chrome iOS*/
 }
@@ -166,6 +169,9 @@ a.btn {
   background: var(--bs-dark-rgb);
   transition: width 0.5s;
   border-left: 2px solid var(--bs-primary);
+}
+.menu-item-expanded {
+  text-decoration-color: white;
 }
 @media (max-width: 767.98px) {
   .sidebar.active {
