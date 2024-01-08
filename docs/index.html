@@ -301,12 +301,10 @@
             loading="lazy" />
         </div>
       </div>
-    </div> 
-
 
       <div
         id="audits"
-        class="row align-items-center g-5 py-5 px-4 full-height intersect"
+        class="row align-items-center g-5 py-5 full-height intersect"
         data-function="changeBackground"
         >
         <div class="col-6 offset-3 offset-md-0 px-5">
@@ -349,7 +347,7 @@
 
       <div
         id="brokerage"
-        class="row align-items-center g-5 py-5 px-4 full-height"
+        class="row align-items-center g-5 py-5 full-height"
        >
         <div class="col-12 col-md-6">
           <div class="col-sm-10 mx-auto">
@@ -384,7 +382,7 @@
 
       <div
       id="clients"
-      class="row flex-column g-5 py-5 px-4 full-height dark-background text-white align-items-center justify-content-center"
+      class="row flex-column g-5 py-5 full-height dark-background text-white align-items-center justify-content-center"
       >
       <h2 class="display-5 fw-bold mb-4 text-center">Our Clients</h2>
       <div class="row align-items-center justify-content-center">
@@ -443,10 +441,10 @@
     -->
 
     
-      <!-- TAGGBOX SOCIAL MEDIA FEED 
+      <!-- TAGGBOX SOCIAL MEDIA FEED -->
       <div
       id="news"
-      class="row flex-column g-5 py-5 full-height intersect align-items-center justify-content-center"
+      class="row flex-column g-5 pb-5 full-height intersect align-items-center justify-content-center"
       data-function="changeBackground"
       >
       <h2 class="display-5 fw-bold text-center">News</h2>
@@ -454,50 +452,13 @@
         <div class="taggbox" style="width:100%;height:100%" data-widget-id="147735" data-tags="false" ></div>
       </div>
 
-    </div>-->
-
-    <div
-      id="hiring"
-      class="row flex-lg-row align-items-center g-5 px-4 py-5 intersect"
-      data-function="changeBackground"
-      >
-      <div class="col-12 col-md-6 pb-5">
-        <img
-            src="img/525_Material Index_Site_03b.jpg"
-            class="d-block mx-lg-auto img-fluid"
-            alt="A man wearing hi-vis scanning a building site using Material Index's software."
-            width="700"
-            height="500"
-            loading="lazy" />
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="col-sm-10 mx-auto">
-          <h2 class="display-5 fw-bold mb-4">We're hiring</h2>
-          <p class="lead mb-4">
-            Material Index are actively recruiting for a variety of roles. If you are an ambitious built environmental professional with a strong commitment to sustainability please apply.
-          </p>
-          <p>
-            <a href="docs/231010_JD_Built Environment Engineers.pdf" download style="text-decoration:none;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>file-download</title><path d="M14,2H6C4.89,2 4,2.89 4,4V20C4,21.11 4.89,22 6,22H18C19.11,22 20,21.11 20,20V8L14,2M12,19L8,15H10.5V12H13.5V15H16L12,19M13,9V3.5L18.5,9H13Z" /></svg>
-            </a>
-            Built Environment Engineers
-          </p>
-          <div>
-            Please send a short cover letter and CV to 
-            <a
-              href="mailto:team@material-index.co.uk?subject=Job Application"
-              >team@material-index.co.uk</a
-            >
-          </div>
-        </div>
-      </div>
-    </div> 
+    </div>
 
 
 
       <div
         id="team"
-        class="row align-items-center justify-content-center g-5 py-5 px-4 full-height"
+        class="row align-items-center justify-content-center g-5 py-5 full-height"
         >
         <div class="col-12 col-md-5">
           <div class="col-sm-10 mx-auto">
@@ -642,10 +603,10 @@
 
 
     <footer
-      class="dark-background text-white-50 full-height pt-5 px-4"
-      style="min-height: 600px;">
+      class="dark-background text-white-50 pt-5 px-4"
+      style="min-height: 700px;">
       <div class="container mt-auto">
-        <div class="row text-center justify-content-center mb-3">
+        <div class="row text-center justify-content-center mb-3 mt-5">
           Supported by
         </div>
       <div class="row flex-lg-row align-items-center justify-content-center g-5 ">
@@ -681,6 +642,7 @@
   
     </div>
     </footer>
+    <script src="js/embed.js" type="text/javascript"></script>
 
     <script src="js/tagline.js"></script>
     <script src="js/chart.js"></script>
@@ -735,52 +697,37 @@
         el.style.opacity = 0
         wrapper.append(el)
       }
-      
 
-      window.onload = () =>{
-        let index = 0
-        /*const texts = [
-        ['Making','a circular','construction', 'industry'],
-        ['Digitising', 'reclaim'],
-        ['Valuing','building','materials'],
-        ['Turning', 'waste', 'into', 'an asset']
-        ]*/
-
-        const texts = [
+      const bannerTexts = [
         ['A Circular Construction Industry'],
         ['Digitising Reclaim'],
        // ['Valuing building components'],
         ['Turning Waste into Assets']
         ]
 
-        const images = [
+        const bannerImages = [
           '525_Material Index_Team_07.jpg',
           '525_Material Index_Site_01a.jpg',
           'circlus_banner_01.jpg',
         ]
 
+        
+  
+      window.onload = () =>{
+        let index = 0
         function setTexts() {
-          changeBannerText(texts[index % texts.length][0],0);
+          changeBannerText(bannerTexts[index % bannerTexts.length][0],0);
           //changeBannerImage(images[index])
           index ++ ; // Increment index and wrap around to the beginning if necessary
-          changeBannerImage(images[index % texts.length ], index)
+          changeBannerImage(bannerImages[index % bannerImages.length ], index)
         }
-        changeBannerImage(images[index % texts.length], index)
+
+        changeBannerImage(bannerImages[index % bannerImages.length], index)
         setInterval(setTexts, 3000);
         setTexts()
+        ApplicationEmbed.init();
+        console.log('loaded')
         } 
-
-
-
-      window.addEventListener("DOMContentLoaded", function(e) {
-
-// Original JavaScript code by Chirp Internet: chirpinternet.eu
-// Please acknowledge use of this code by including this header.
-
-
-
-}, false);
-
 
       document.querySelectorAll(".intersect").forEach((el) => {
         window[el.dataset.function](el);
@@ -788,6 +735,7 @@
     
       
     </script>
+
 
 <!--<script src="https://widget.taggbox.com/embed-lite.min.js" type="text/javascript"></script>-->
 
