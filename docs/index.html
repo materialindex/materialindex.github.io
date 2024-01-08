@@ -60,6 +60,13 @@
   gtag('config', 'G-X87H6EMTHE');
 </script>
 
+<script>
+       function toggleSidebar() {
+        document.querySelector(".sidebar").classList.toggle("active");
+        console.log(document.querySelector(".sidebar"));
+      }
+  </script>
+
   <body>
     <header>
       <nav class="navbar navbar-expand-md bg-white fixed-top shadow-sm">
@@ -80,7 +87,7 @@
             >
           </div>
 
-          <div class="d-flex">
+          <div class="d-flex pe-2 pe-md-5 d-flex align-items-center">
             <div id="menu-dropdown" class="dropdown pr-4">
               <button
                 class="btn btn-white dropdown-toggle"
@@ -90,50 +97,52 @@
                 <img src="img/icons/menu.svg" alt="menu icon"/>
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#hiring">Jobs</a></li>
-                <li><a class="dropdown-item" href="audits.html">Audits</a></li>
-                <li><a class="dropdown-item" href="#brokerage">Brokerage</a></li>
+                <li><a class="dropdown-item" href="index.html#audits">Audits</a></li>
+                <li><a class="dropdown-item" href="index.html#brokerage">Materials</a></li>
                 <li>
-                  <a class="dropdown-item" href="#clients">Work</a>
+                  <a class="dropdown-item" href="index.html#clients">Clients</a>
                 </li>
-                <li><a class="dropdown-item" href="#about">About</a></li>
+                <li><a class="dropdown-item" href="index.html#news">News</a></li>
+                <li><a class="dropdown-item" href="index.html#team">Team</a></li>
               </ul>
             </div>
 
             <a
-            href="index.html#hiring"
-            class="me-3 fw-bold menu-item-expanded"
-            >Jobs</a
-            >
-            <a
-              href="audits.html"
+              href="index.html#audits"
               class="me-3 fw-bold menu-item-expanded"
               >Audits</a
             >
             <a
               href="index.html#brokerage"
               class="me-3 fw-bold menu-item-expanded"
-              >Brokerage</a
+              >Materials</a
             >
             <a
             href="index.html#clients"
             class="me-3 fw-bold menu-item-expanded"
-            >Work</a
+            >Clients</a
             >
             <a
-              href="index.html#about"
+            href="index.html#news"
+            class="me-3 fw-bold menu-item-expanded"
+            >News</a
+            >
+            <a
+              href="index.html#team"
               class="me-5 fw-bold menu-item-expanded"
-              >About</a
+              >Team</a
             >
-            <a
-              href="https://app.material-index.co.uk"
-              class="me-4 fw-bold menu-item-expanded"
-              >Login</a
-            >
+
+            <button
+              class="btn btn-outline-dark btn-md"
+              onclick="toggleSidebar()">
+              Subscribe
+            </button>
           </div>
         </div>
       </nav>
     </header>
+
 
     <div id="banner-images">
 
@@ -153,6 +162,21 @@
    
 
   </div>
+
+  <div class="sidebar bg-white">
+    <div class="d-flex justify-content-end pe-3">
+      <button
+                class="btn btn-white dropdown-toggle"
+                type="button"
+                onclick="toggleSidebar()"
+                aria-expanded="false">
+                <img src="img/icons/window-close.svg" alt="menu icon"/>
+              </button>
+            </div>
+       <iframe src="https://cdn.forms-content.sg-form.com/74fbf478-ae23-11ee-aac3-823f4e816314"></iframe>
+  </div>
+
+
 
     <div class="p-4 p-md-5 mb-4 full-height">
       <div style="margin-top: 40vh; margin-left: 13vw">
@@ -201,7 +225,7 @@
     <div class="container-fluid px-4">
       <div
         id="panel-1"
-        class="row flex-lg-row-reverse align-items-center g-5 py-5 mb-5 full-height intersect"
+        class="row flex-lg-row-reverse align-items-center g-5 py-5 mb-5 full-height intersect  dark-background text-white"
         data-function="createChart">
         <div class="col-12 col-md-6">
           <div class="col-lg-10 mx-auto text-center">
@@ -216,7 +240,8 @@
               loading="lazy"></canvas>
             <div style="margin-top: -2vw">
               Source:
-              <a
+              <a 
+                style="color:grey; text-decoration: none;"
                 href="https://www.gov.uk/government/statistics/uk-waste-data/uk-statistics-on-waste#recovery-rate-from-non-hazardous-construction-and-demolition-cd-waste">
                 UK Gov (2018)
               </a>
@@ -235,43 +260,6 @@
           </div>
         </div>
       </div>
-
-      <div
-      id="hiring"
-      class="row flex-lg-row align-items-center g-5 py-5 full-height intersect"
-      data-function="changeBackground"
-      >
-      <div class="col-12 col-md-6">
-        <img
-          src="img/laptop-tablet-site4.png"
-          class="d-block mx-lg-auto img-fluid"
-          alt="Bootstrap Themes"
-          width="700"
-          alt="An office foyer with reception desk."
-          loading="lazy" />
-      </div>
-      <div class="col-12 col-md-6">
-        <div class="col-sm-10 mx-auto">
-          <h2 class="display-5 fw-bold mb-4">We're hiring</h2>
-          <p class="lead mb-4">
-            Material Index are actively recruiting for a variety of roles. If you are an ambitious built environmental professional with a strong commitment to sustainability please apply.
-          </p>
-          <p>
-            <a href="docs/231010_JD_Built Environment Engineers.pdf" download style="text-decoration:none;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>file-download</title><path d="M14,2H6C4.89,2 4,2.89 4,4V20C4,21.11 4.89,22 6,22H18C19.11,22 20,21.11 20,20V8L14,2M12,19L8,15H10.5V12H13.5V15H16L12,19M13,9V3.5L18.5,9H13Z" /></svg>
-            </a>
-            Built Environment Engineers
-          </p>
-          <div>
-            Please send a short cover letter and CV to 
-            <a
-              href="mailto:team@material-index.co.uk?subject=Job Application"
-              >team@material-index.co.uk</a
-            >
-          </div>
-        </div>
-      </div>
-    </div> 
 
 
       <div
@@ -316,7 +304,7 @@
         data-function="changeBackground">
         <div class="col-12 col-md-6">
           <div class="col-sm-8 mx-auto">
-            <h2 class="display-5 fw-bold mb-4">Brokerage</h2>
+            <h2 class="display-5 fw-bold mb-4">Materials</h2>
             <p class="lead mb-4">
               We specialise in diverting materials arising from the refit, deconstruction and demolition of buildings that would be sent to waste being reused. We provide traceability on the sending of materials to the secondary supply chain, and their procurements. 
             </p>
@@ -347,7 +335,7 @@
 
       <div
       id="clients"
-      class="row flex-column g-5 py-5 full-height text-white  align-items-center justify-content-center dark-background"
+      class="row flex-column g-5 py-5 full-height dark-background text-white align-items-center justify-content-center"
       >
       <h2 class="display-5 fw-bold mb-4 text-center">Our Clients</h2>
       <div class="row align-items-center justify-content-center">
@@ -466,14 +454,52 @@
 
     </div>
 
+    <div
+      id="hiring"
+      class="row flex-lg-row align-items-center g-5 py-5 intersect"
+      data-function="changeBackground"
+      >
+      <div class="col-12 col-md-6">
+        <img
+          src="img/laptop-tablet-site4.png"
+          class="d-block mx-lg-auto img-fluid"
+          alt="Bootstrap Themes"
+          width="700"
+          alt="An office foyer with reception desk."
+          loading="lazy" />
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="col-sm-10 mx-auto">
+          <h2 class="display-5 fw-bold mb-4">We're hiring</h2>
+          <p class="lead mb-4">
+            Material Index are actively recruiting for a variety of roles. If you are an ambitious built environmental professional with a strong commitment to sustainability please apply.
+          </p>
+          <p>
+            <a href="docs/231010_JD_Built Environment Engineers.pdf" download style="text-decoration:none;">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>file-download</title><path d="M14,2H6C4.89,2 4,2.89 4,4V20C4,21.11 4.89,22 6,22H18C19.11,22 20,21.11 20,20V8L14,2M12,19L8,15H10.5V12H13.5V15H16L12,19M13,9V3.5L18.5,9H13Z" /></svg>
+            </a>
+            Built Environment Engineers
+          </p>
+          <div>
+            Please send a short cover letter and CV to 
+            <a
+              href="mailto:team@material-index.co.uk?subject=Job Application"
+              >team@material-index.co.uk</a
+            >
+          </div>
+        </div>
+      </div>
+    </div> 
+
+
 
       <div
-        id="about"
+        id="team"
         class="row align-items-center justify-content-center g-5 py-5 full-height"
         >
         <div class="col-12 col-md-5">
           <div class="col-sm-8 mx-auto">
-            <h2 class="display-5 fw-bold mb-4">About Us</h2>
+            <h2 class="display-5 fw-bold mb-4">Team</h2>
             <p class="lead mb-4">
                We are architects, engineers and software developers committed to helping the construction industry become more sustainable.
             </p>
@@ -615,7 +641,7 @@
 
     <footer
       class="dark-background text-white-50"
-      style="height: 600px;">
+      style="min-height: 600px;">
       <div class="container mt-auto">
         <div class="row text-center justify-content-center mb-3">
           Supported by
@@ -636,7 +662,7 @@
     </div>
 
 
-      <div class="mt-auto d-flex flex-row px-3 px-md-5 pb-3 pb-md-5 justify-content-between align-items-end text-white-50">
+      <div class="mt-auto d-flex flex-row px-3 px-md-5 py-5 justify-content-between align-items-end text-white-50">
       <small style="max-width: 50%">
         <div>Geovation</div>
         <div>F4, Sutton Yard</div>
@@ -653,7 +679,6 @@
   
     </div>
     </footer>
-    <script src="https://widget.taggbox.com/embed-lite.min.js" type="text/javascript"></script>
     <script src="js/tagline.js"></script>
     <script src="js/chart.js"></script>
     <script>
@@ -674,6 +699,7 @@
 
       function changeBannerText(text, index) {
           const wrapper = document.querySelector(`.banner-text-${index}`);
+          console.log('wrapper')
           if (!wrapper) return null
           wrapper.style.display = 'none'
           setTimeout(()=>{
@@ -759,5 +785,7 @@
     
       
     </script>
+        <script src="https://widget.taggbox.com/embed-lite.min.js" type="text/javascript"></script>
+
   </body>
 </html>

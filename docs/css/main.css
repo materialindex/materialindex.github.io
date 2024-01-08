@@ -166,9 +166,18 @@ a.btn {
   height: 100vh;
   width: 0;
   z-index: 1000;
+  padding-top: 100px;
   background: var(--bs-dark-rgb);
   transition: width 0.5s;
   border-left: 2px solid var(--bs-primary);
+}
+.sidebar iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+.sidebar div {
+  visibility: hidden;
 }
 .menu-item-expanded {
   text-decoration-color: white;
@@ -176,6 +185,9 @@ a.btn {
 @media (max-width: 767.98px) {
   .sidebar.active {
     width: 100vw;
+  }
+  .sidebar.active div {
+    visibility: visible;
   }
   #tagline-nav {
     display: none;
@@ -189,7 +201,7 @@ a.btn {
 }
 @media (min-width: 768px) {
   .sidebar.active {
-    width: 40vw;
+    width: 580px;
   }
   nav.navbar {
     height: 70px;
@@ -403,4 +415,22 @@ a.navbar-logo {
 }
 .navbar-logo img {
   height: 90%;
+}
+
+/* LINKEDIN FEED  */
+
+.tb_hc_author_profile,
+.tb_hc_social_,
+.tb_hc_authorname {
+  display: none !important;
+}
+.tb_hc_image_wrapper {
+  max-height: 200px;
+}
+.tb_hc_content {
+  font-size: 12px !important;
+  text-align: left !important;
+}
+.tb_hc_author_info {
+  margin-bottom: 0 !important;
 }

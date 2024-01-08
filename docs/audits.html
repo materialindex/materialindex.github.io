@@ -61,78 +61,79 @@
 
   <body>
     <header>
-        <nav class="navbar navbar-expand-md bg-white fixed-top shadow-sm">
-          <div class="container-fluid px-0" style="height:100%;">
-            <div class="logo-container ms-2 ms-md-5 mt-1 py-1">
-              <a
-              class="navbar-logo"
-                href="index.html"
-                >
-                <img src="img/logos/mi-logo.svg" alt="Material Index Logo"/>
-                </a
+      <nav class="navbar navbar-expand-md bg-white fixed-top shadow-sm">
+        <div class="container-fluid px-0" style="height:100%;">
+          <div class="logo-container ms-2 ms-md-5 mt-1 py-1">
+            <a
+            class="navbar-logo"
+              href="index.html"
               >
-  
-              <span
-                id="tagline-nav"
-                class="navbar-brand flex-shrink-1 text-primary ms-4"
-                >Digitising Reclaim</span
-              >
-            </div>
-  
-            <div class="d-flex">
-              <div id="menu-dropdown" class="dropdown pr-4">
-                <button
-                  class="btn btn-white dropdown-toggle"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <img src="img/icons/menu.svg" alt="menu icon"/>
-                </button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#hiring">Jobs</a></li>
-                  <li><a class="dropdown-item" href="audits.html">Audits</a></li>
-                  <li><a class="dropdown-item" href="#brokerage">Brokerage</a></li>
-                  <li>
-                    <a class="dropdown-item" href="#clients">Work</a>
-                  </li>
-                  <li><a class="dropdown-item" href="#about">About</a></li>
-                </ul>
-              </div>
-  
-              <a
-              href="index.html#hiring"
-              class="me-3 fw-bold menu-item-expanded"
-              >Jobs</a
-              >
-              <a
-                href="audits.html"
-                class="me-3 fw-bold menu-item-expanded"
-                >Audits</a
-              >
-              <a
-                href="index.html#brokerage"
-                class="me-3 fw-bold menu-item-expanded"
-                >Brokerage</a
-              >
-              <a
-              href="index.html#clients"
-              class="me-3 fw-bold menu-item-expanded"
-              >Work</a
-              >
-              <a
-                href="index.html#about"
-                class="me-5 fw-bold menu-item-expanded"
-                >About</a
-              >
-              <a
-                href="https://app.material-index.co.uk"
-                class="me-4 fw-bold menu-item-expanded"
-                >Login</a
-              >
-            </div>
+              <img src="img/logos/mi-logo.svg" alt="Material Index Logo"/>
+              </a
+            >
+
+            <span
+              id="tagline-nav"
+              class="navbar-brand flex-shrink-1 text-primary ms-4"
+              >Digitising Reclaim</span
+            >
           </div>
-        </nav>
-      </header>
+
+          <div class="d-flex pe-2 pe-md-5 d-flex align-items-center">
+            <div id="menu-dropdown" class="dropdown pr-4">
+              <button
+                class="btn btn-white dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="img/icons/menu.svg" alt="menu icon"/>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="index.html#audits">Audits</a></li>
+                <li><a class="dropdown-item" href="index.html#brokerage">Materials</a></li>
+                <li>
+                  <a class="dropdown-item" href="index.html#clients">Clients</a>
+                </li>
+                <li><a class="dropdown-item" href="index.html#news">News</a></li>
+                <li><a class="dropdown-item" href="index.html#team">Team</a></li>
+              </ul>
+            </div>
+
+            <a
+              href="index.html#audits"
+              class="me-3 fw-bold menu-item-expanded"
+              >Audits</a
+            >
+            <a
+              href="index.html#brokerage"
+              class="me-3 fw-bold menu-item-expanded"
+              >Materials</a
+            >
+            <a
+            href="index.html#clients"
+            class="me-3 fw-bold menu-item-expanded"
+            >Clients</a
+            >
+            <a
+            href="index.html#news"
+            class="me-3 fw-bold menu-item-expanded"
+            >News</a
+            >
+            <a
+              href="index.html#team"
+              class="me-5 fw-bold menu-item-expanded"
+              >Team</a
+            >
+
+            <button
+              class="btn btn-outline-dark btn-md"
+              onclick="toggleSidebar()">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
 
     <div id="banner-images">
       <div
