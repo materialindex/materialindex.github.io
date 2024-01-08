@@ -94,6 +94,18 @@ a.btn {
   animation: slideText;
   animation-delay: 1000ms;
 }
+
+img.bullet {
+  height: 18px;
+  margin-bottom: 3px;
+  margin-right: 8px;
+  margin-left: 16px;
+}
+img.raised {
+  -webkit-box-shadow: 10px 10px 75px -18px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 10px 10px 75px -18px rgba(0, 0, 0, 0.33);
+  box-shadow: 10px 10px 75px -18px rgba(0, 0, 0, 0.33);
+}
 /*
 .banner-text-0 {
   animation: slideText 2s linear;
