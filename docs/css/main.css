@@ -446,3 +446,25 @@ a.navbar-logo {
 .tb_hc_author_info {
   margin-bottom: 0 !important;
 }
+
+/* BLINK 
+.blink::after {
+  content: "_";
+  animation: blinker 1s infinite;
+}
+
+@keyframes blinker {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+*/

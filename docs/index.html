@@ -149,7 +149,7 @@
      
      <div
       class="fadein banner p-4 p-md-5 mb-4 full-height"
-      style="background-image: url('img/circlus_banner_01.jpg')"
+      style="background-image: url('img/525_Material Index_Team_07.jpg')"
       >
      </div>
      <!--
@@ -198,7 +198,7 @@
       <div id="banner-text">
         <div class="banner-text-wrapper">
           <div class="banner-text-slider">
-            <h3 class="mb-5 display-3 banner-text banner-text-0"><span></span></h3>
+            <h3 class="mb-5 display-3 banner-text banner-text-0"><span class="blink"></span></h3>
           </div>
         </div>
         <!--<div class="banner-text-wrapper">
@@ -225,7 +225,7 @@
     <div class="container-fluid px-4">
       <div
         id="panel-1"
-        class="row flex-lg-row-reverse align-items-center g-5 py-5 mb-5 full-height intersect  dark-background text-white"
+        class="row flex-lg-row-reverse align-items-center g-5 py-5 mb-5 full-height intersect dark-background text-white"
         data-function="createChart">
         <div class="col-12 col-md-6">
           <div class="col-lg-10 mx-auto text-center">
@@ -250,12 +250,12 @@
         </div>
         <div class="col-12 col-md-6">
           <div class="col-sm-10 col-lg-10 mx-auto">
-            <h2 class="display-5 fw-bold mb-4">The challenge</h2>
+            <h2 class="display-5 fw-bold mb-4">Work with us</h2>
             <p class="lead mb-4">
-              Construction generates over 50% of the UK’s landfill and the embodied carbon of replacement materials is over 14% of total UK emissions. Yet reclaim rates are less than 2%.
+              Material Index works collaboratively with building owners, contractors, and design teams to enable the reuse of construction materials. We provide a range of circular economy services such as pre-demolition audits, reuse consultancy and materials brokerage.
             </p>
             <p class="lead mb-4">
-              Material Index digitises the reclaim industry, closing the loop between demolition and construction.
+              Construction generates over 50% of the UK’s waste by volume. The embodied carbon of replacement virgin materials is over 14% of total UK emissions, while industry average reuse rates are currently less than 2%. Reusing more materials lowers waste and carbon while cutting costs.
             </p>
           </div>
         </div>
@@ -278,7 +278,7 @@
             </p>
 
             <p class="lead mb-4">
-              If you are interested in gaining early access, please sign-up to our partners programme.
+              Please sign-up to our partners programme.
             </p>
             <div>
               <a
@@ -642,8 +642,6 @@
   
     </div>
     </footer>
-    <script src="js/embed.js" type="text/javascript"></script>
-
     <script src="js/tagline.js"></script>
     <script src="js/chart.js"></script>
     <script>
@@ -711,9 +709,7 @@
           'circlus_banner_01.jpg',
         ]
 
-        
-  
-      window.onload = () =>{
+        document.fonts.ready.then(function() {
         let index = 0
         function setTexts() {
           changeBannerText(bannerTexts[index % bannerTexts.length][0],0);
@@ -725,17 +721,18 @@
         changeBannerImage(bannerImages[index % bannerImages.length], index)
         setInterval(setTexts, 3000);
         setTexts()
-        ApplicationEmbed.init();
-        console.log('loaded')
-        } 
-
+      });
+      
       document.querySelectorAll(".intersect").forEach((el) => {
         window[el.dataset.function](el);
       });
+
+      //addEventListener("DOMContentLoaded");
     
       
     </script>
 
+    <script src="js/embed.js" type="text/javascript" defer></script>
 
 <!--<script src="https://widget.taggbox.com/embed-lite.min.js" type="text/javascript"></script>-->
 

@@ -69,3 +69,5 @@ var ApplicationEmbed =
       },
     };
   })(window, undefined);
+
+ApplicationEmbed.init();
