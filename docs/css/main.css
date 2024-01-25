@@ -447,6 +447,31 @@ a.navbar-logo {
   margin-bottom: 0 !important;
 }
 
+/* NEWS CARDS */
+.card-img-top {
+  width: 100%; /* This will make the image take the full width of the card */
+  height: 200px; /* Adjust as needed */
+  object-fit: cover; /* This will make the image cover the set height and width */
+}
+.card-title {
+  font-size: 12px; /* Adjust as needed */
+  font-weight: 400;
+  text-align: right;
+}
+.card-text {
+  font-size: 12px; /* Adjust as needed */
+}
+.card {
+  background: none;
+}
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+.card-link:hover .card {
+  background: #ffffff33;
+}
+
 /* BLINK 
 .blink::after {
   content: "_";
