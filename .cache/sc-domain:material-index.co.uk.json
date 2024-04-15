@@ -36,8 +36,8 @@
     "lastCheckedAt": "2024-02-01T14:50:14.523Z"
   },
   "https://material-index.co.uk/audits.html": {
-    "status": "Crawled - currently not indexed",
-    "lastCheckedAt": "2024-02-01T14:50:14.530Z"
+    "status": "Page with redirect",
+    "lastCheckedAt": "2024-04-15T17:57:00.971Z"
   },
   "https://material-index.co.uk/index.html#team": {
     "status": "Discovered - currently not indexed",
@@ -49,7 +49,7 @@
   },
   "https://material-index.co.uk/index.html": {
     "status": "Page with redirect",
-    "lastCheckedAt": "2024-02-01T14:50:14.500Z"
+    "lastCheckedAt": "2024-04-15T17:57:01.164Z"
   },
   "https://material-index.co.uk/index.html#clients": {
     "status": "Discovered - currently not indexed",
