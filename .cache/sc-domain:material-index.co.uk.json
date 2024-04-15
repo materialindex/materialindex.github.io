@@ -30,5 +30,33 @@
   "http://material-index.co.uk/audits.html": {
     "status": "Discovered - currently not indexed",
     "lastCheckedAt": "2024-01-31T14:38:25.793Z"
+  },
+  "https://material-index.co.uk/index.html#brokerage": {
+    "status": "URL is unknown to Google",
+    "lastCheckedAt": "2024-02-01T14:50:14.523Z"
+  },
+  "https://material-index.co.uk/audits.html": {
+    "status": "Crawled - currently not indexed",
+    "lastCheckedAt": "2024-02-01T14:50:14.530Z"
+  },
+  "https://material-index.co.uk/index.html#team": {
+    "status": "Discovered - currently not indexed",
+    "lastCheckedAt": "2024-02-01T14:50:27.778Z"
+  },
+  "https://material-index.co.uk/index.html#audits": {
+    "status": "Discovered - currently not indexed",
+    "lastCheckedAt": "2024-02-01T14:50:14.636Z"
+  },
+  "https://material-index.co.uk/index.html": {
+    "status": "Page with redirect",
+    "lastCheckedAt": "2024-02-01T14:50:14.500Z"
+  },
+  "https://material-index.co.uk/index.html#clients": {
+    "status": "Discovered - currently not indexed",
+    "lastCheckedAt": "2024-02-01T14:50:14.522Z"
+  },
+  "https://material-index.co.uk/index.html#news": {
+    "status": "Discovered - currently not indexed",
+    "lastCheckedAt": "2024-02-01T14:50:27.486Z"
   }
 }
