@@ -473,6 +473,10 @@ a.navbar-logo {
   background: #ffffff33;
 }
 
+.bi {
+  fill: #eaecef;
+}
+
 /* BLINK 
 .blink::after {
   content: "_";
